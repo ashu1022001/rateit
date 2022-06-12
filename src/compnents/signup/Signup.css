@@ -1,0 +1,62 @@
+.signup{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    top: 0;
+}
+.signup-win{
+    position: absolute;
+    height: 430px;
+    width: 300px;
+    background-color: #F8F1F1;
+    left: 300px;
+    top: 80px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.signup .logo{
+    position: absolute;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    left: 40%;
+    top: 10%;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.signup-form{
+position: absolute;
+width: 100%;
+height: 50%;
+top:100px ;
+}
+.signup-form input{
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin: 10px;
+
+}
+.btn{
+    width: 260px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bolder;
+    color: white;
+    background-color: rgb(113, 215, 255);
+    cursor: pointer;
+}
+.login{
+    position: absolute;
+    height: 55px;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+
+}
+.logina{
+    text-decoration: none;
+}
