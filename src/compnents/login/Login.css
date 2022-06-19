@@ -1,8 +1,35 @@
+*{
+    margin: 0;
+}
 body{
     margin: 0;
 }
 .it{
-    color: #a83273;
+    color: #E53528;
+}
+
+.container{
+   
+    background-repeat: no-repeat ;
+
+}
+.container img{
+     position: absolute;
+    width:600px;
+    height: 100vh;
+    right: 10%;
+}
+
+.invalidMsg{
+    position: absolute;
+    color: red;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+a{
+    text-decoration: none;
+    
 }
 .login{
     position: relative;
@@ -13,16 +40,18 @@ body{
     position: absolute;
     height: 350px;
     width: 300px;
-    background-color: #F8F1F1;
-    left: 300px;
-    top: 80px;
-    border: 1px solid black;
+   
+    left: 20%;
+    top:15% ;
+    
     border-radius: 5px;
 }
 .login .logo{
     position: absolute;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    left: 40%;
+    /* left: 40%; */
+    left: 50%;
+    transform: translateX(-50%);
     top: 10%;
     font-size: larger;
     font-weight: bolder;
@@ -51,7 +80,7 @@ top:100px ;
     font-size: large;
     font-weight: bolder;
     color: white;
-    background-color: rgb(113, 215, 255);
+    background-color: #E53528;
     cursor: pointer;
 }
 .signup{

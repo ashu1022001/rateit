@@ -1,3 +1,90 @@
-.active-star {
+/* .active-star {
     color: blue;
+} */
+
+
+.content{
+    margin: 20px 0;
+    border-radius: 50px;
+    position: relative;
+    height: 600px;
+    
+    width: 500px;
+    overflow: hidden;
+    border-radius: 10px ;
+    border: #F3F3F4 solid;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.uname{
+    position: absolute;
+    left: 3%;
+    font-weight: bolder;
+}
+
+
+
+.rate {
+    position: absolute;
+    top: 0;
+    
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 300px;
+    height: calc(100% - 22px);
+
+  }
+
+  .emoji {
+
+    font-size: 30px;
+    height: 40px;
+  }
+  
+  .rate input {
+    cursor: ew-resize;
+  }
+
+  /* #interaction ul{
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 100px;
+    top: 0;
+    padding: 0;
+    margin: 0;
+} */
+
+#interaction{
+    position: absolute;
+    display: flex;
+    height: 100px;
+    width: 500px;
+    bottom: 0;
+    left: 0;
+
+    display: inline-block;
+    
+}
+.urated{
+    position: absolute;
+    right: 3%;
+    width: 100px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    
+
+    
+    
+}
+.urated .emoji{
+    position: absolute;
+    top: 0;
+}
+.totalRatings{
+    font-weight: bolder;
+    position: absolute;
+    bottom: 20px;
 }
