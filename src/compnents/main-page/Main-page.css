@@ -113,18 +113,7 @@ body{
 }
 
 
-.picture{
-    position: absolute;
-    height: 500px;
-    width: 500px;
-    top: 0;
-    left: 0;
 
-}
-.picture img{
-    height: 100%;
-    width: 100%;
-}
 
 
 .rating-10{
@@ -145,4 +134,10 @@ body{
         left: 20%;
     }
     
+}
+.sugg-page{
+    width: 300px;
+    position: sticky;
+    top: 102px;
+    right: 10%;
 }

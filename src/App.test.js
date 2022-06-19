@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import "https://kit.fontawesome.com/fe838ae10b.js";
 
 test('renders learn react link', () => {
   render(<App />);

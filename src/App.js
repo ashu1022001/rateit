@@ -10,11 +10,13 @@ import {
   Routes,
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import ReactTooltip from 'react-tooltip';
 
 function App() {
   return (
     <>
     <ToastContainer theme="dark" position="top-left" autoClose={false}  limit={1} ></ToastContainer>
+    <ReactTooltip/>
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />

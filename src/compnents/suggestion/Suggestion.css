@@ -1,0 +1,44 @@
+.suggestion-cont{
+    position: absolute;
+    top: 100px;
+    right: 7%;
+    width: 300px;
+    /* overflow: hidden; */
+    
+}
+.current-user{
+    width: 80%;
+    border-radius: 5px;
+    margin: 10px;
+    gap: 10px;
+    padding: 10px;
+    height: 80px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    align-items: center;
+
+
+}
+.sugg-win{
+    width: 80%;
+    border-radius: 5px;
+    margin: 10px;
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+}
+.user-name h6{
+    font-weight: 400;
+}
+.user-box{
+    width: 50px;
+    height: 50px;
+    clip-path: circle();
+}
+.user-box img{
+    width: 100%;
+    height: 100%;
+}
