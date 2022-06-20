@@ -21,7 +21,7 @@ export const Login = () => {
       toast.error("Invalid credentials");
     }
     if (password === user.password) {
-      navigate("/mainpage", { replace: true });
+      navigate("/rateit", { replace: true });
     }
   };
 
@@ -33,7 +33,7 @@ export const Login = () => {
           <div className="login-win">
             <div className="logo">
               <h3>
-                Rate<span className="it">it</span>
+               <span>Rate<span className="it">it</span></span> 
               </h3>
             </div>
             <div className="login-form">

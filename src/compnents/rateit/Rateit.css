@@ -12,15 +12,20 @@ body{
     top: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     z-index: 1;
    border-bottom:2px #F3F3F4 solid ;
 }
 .logoit{
     color: #E53528;
 }
+.logo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    font-weight: bolder;
+}
 .head{
-    position: absolute;
+   
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
     font-weight: bolder;
@@ -88,20 +93,20 @@ body{
 }  */
 
 .navigator{
-    position: absolute;
-    left: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
     width: 20%;
     height: 100%;
 }
 
 .navigator ul{
-    position: absolute;
+    justify-content: space-around;
+    /* position: absolute; */
     list-style: none;
     width: 100%;
     display: flex;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
     
     
 }

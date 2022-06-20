@@ -1,4 +1,4 @@
-import "./Main-page.css";
+import "./Rateit.css";
 import React, { useState } from "react";
 import "https://kit.fontawesome.com/fe838ae10b.js";
 import { useEffect } from "react";
@@ -6,7 +6,7 @@ import Post from "../post/Post";
 import Suggestion from "../suggestion/Suggestion";
 import { Link } from "react-router-dom";
 
-function MainPage() {
+function Rateit() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetch("https://dummyapi.io/data/v1/post?limit=10", {
@@ -28,10 +28,10 @@ function MainPage() {
   return (
     <div>
       <div className="header">
-        <div className="head">
-          <div className="logo">
-            Rate<span className="logoit">it</span>
+      <div className="logo">
+            <h3><span>Rate</span><span className="logoit">it</span></h3>
           </div>
+        <div className="head">
           <div className="nav-bar">
             <div className="search-cont">
               <form onSubmit={serchUser}>
@@ -67,6 +67,7 @@ function MainPage() {
 
       <Post
         name="Ashutosh"
+        userDp = "/img/ashu.jpg"
         url="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
       />
       {posts.map((post) => {
@@ -84,4 +85,4 @@ function MainPage() {
     </div>
   );
 }
-export default MainPage;
+export default Rateit;

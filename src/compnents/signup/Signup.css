@@ -23,15 +23,17 @@ a{
     width: 300px;
     left: 20%;
     top: 15%;
+    display: flex;
+    justify-content: center;
     border-radius: 5px;
 }
 .signupP .logo{
     position: absolute;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    left: 50%;
+   
     /* height: 15%; */
     top: 10%;
-    transform: translateX(-50%);
+    
     font-size: larger;
     font-weight: bolder;
 }

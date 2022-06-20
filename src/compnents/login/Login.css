@@ -43,16 +43,18 @@ a{
    
     left: 20%;
     top:15% ;
+    display: flex;
+    justify-content: center;
     
     border-radius: 5px;
 }
-.login .logo{
+.logo{
     position: absolute;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     /* left: 40%; */
-    left: 50%;
-    transform: translateX(-50%);
-    top: 10%;
+    /* left: 50%;
+    transform: translateX(-50%);*/
+    top: 10%; 
     font-size: larger;
     font-weight: bolder;
 }
