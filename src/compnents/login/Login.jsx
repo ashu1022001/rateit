@@ -1,28 +1,42 @@
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../firebase/firebase";
 
 import { APP_NAME } from "../../utils/common";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { async } from "@firebase/util";
 
 export const Login = () => {
+ 
 
-    const [password, setPassword] = useState('');
+ 
+
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  
 
   let navigate = useNavigate();
-  const loginfn = (e) => {
-    e.preventDefault();
-    const username = e.target.elements.username.value.trim();
-    const userString = localStorage.getItem(username);
-    const user = JSON.parse(userString);
-
-    if (!localStorage.getItem(username) || password !== user.password) {
-      toast.error("Invalid credentials");
+  const loginfn = async (e) => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+       navigate("/rateit", { replace: true });
+    } catch (error) {
+      toast.error(error.message)
     }
-    if (password === user.password) {
-      navigate("/rateit", { replace: true });
-    }
+    
   };
 
   return (
@@ -33,29 +47,32 @@ export const Login = () => {
           <div className="login-win">
             <div className="logo">
               <h3>
-               <span>Rate<span className="it">it</span></span> 
+                <span>
+                  Rate<span className="it">it</span>
+                </span>
               </h3>
             </div>
             <div className="login-form">
-              <form onSubmit={loginfn}>
-                <input
-                  type="text"
-                  placeholder="username"
-                  name="username"
-                  id="username"
-                />
-                <input
-                  type="password"
-                  name="pass"
-                  id="passKey"
-                  placeholder="Password"
-                  onInput={(e) => setPassword(e.target.value)}
-                  value={password}
-                />
-                <button className="btn" type="submit" disabled={false}>
-                  Login
-                </button>
-              </form>
+              <input
+               
+                placeholder="Email"
+                name="useremail"
+                onInput={(e) => {setEmail(e.target.value)}}
+              />
+              <input
+                type="password"
+                name="pass"
+                placeholder="Password"
+                onInput={(e) => {setPassword(e.target.value)}}
+              />
+              <button
+                onClick={loginfn}
+                className="btn"
+                type="submit"
+                disabled={false}
+              >
+                Login
+              </button>
             </div>
             <div className="signup">
               <p>

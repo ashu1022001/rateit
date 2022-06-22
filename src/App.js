@@ -10,12 +10,14 @@ import {
   Routes,
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import Userprofile from "./compnents/user-profile/Userprofile";
+
 
 
 function App() {
   return (
     <>
-    <ToastContainer theme="dark" position="top-left" autoClose={false}  limit={1} ></ToastContainer>
+    <ToastContainer theme="dark" position="top-left" autoClose={3000}  limit={1} ></ToastContainer>
 
     <Router>
       <Routes>
@@ -23,7 +25,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/rateit" element={<Rateit />} />
         <Route path="/some" element={<Some />}></Route>
-        <Route element={<Some />} />
+        <Route path="/rateit/user" element={<Userprofile/>}></Route>
       </Routes>
     </Router>
     </>

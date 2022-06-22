@@ -7,6 +7,8 @@ import SuggestedUser from "../suggestedUser/SuggestedUser";
 export default function Suggestion() {
 
   const [users,setUsers] = useState([]);
+  const [showMoreBtn,setShowMoreBtn] = useState(false);
+  const [btnText,setBtnText] = useState("show more")
 
   useEffect(()=>{
   fetch("https://dummyapi.io/data/v1/user?limit=10", {
@@ -17,6 +19,19 @@ export default function Suggestion() {
     .then((users) => users.json())
     .then((users) => setUsers(users.data));
   },[])
+
+
+  const showMoreFn =(e)=>{
+    setShowMoreBtn(!showMoreBtn);
+    if(btnText ==="show more"){
+      setBtnText("show less")
+    }
+    else{
+      setBtnText("show more")
+    }
+    
+  }
+
   return (
     
       <div className="suggestion-cont">
@@ -30,7 +45,7 @@ export default function Suggestion() {
           </span>
 
         </div>
-        <div className="sugg-win">
+        <div className={`sugg-win ${showMoreBtn  && 'show-more'}`}>
         <span> <h5>suggested for you</h5></span>
         {
           users.map((user)=>{
@@ -44,6 +59,7 @@ export default function Suggestion() {
             )
           })
         }
+        <button onClick={showMoreFn} className="show-more-btn" >{btnText}</button>
         </div>
       </div>
   );

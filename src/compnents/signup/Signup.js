@@ -1,46 +1,44 @@
-import react, { useState } from "react";
+import react, { useState,useEffect } from "react";
 import "./Signup.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../firebase/firebase";
 import {toast} from "react-toastify"
+import {collection, getDocs,addDoc} from "firebase/firestore"
+import { async } from '@firebase/util'
 function SignUp() {
 
 
   
-  const handleSubmit = (e) => {
+  const handleSubmit =  async (e) => {
     e.preventDefault();
-     function User(email,name,userName,password){
-      this.email=email;
-      this.name=name;
-      this.userName=userName;
-      this.password=password;
 
-    }
-  
 
     const email = e.target.elements.email.value.trim();
     const name = e.target.elements.name.value.trim();
     const userName = e.target.elements.username.value.trim();
     const password = e.target.elements.password.value.trim();
-
-    const user = new User(email,name,userName,password);
-    const userString = JSON.stringify(user);
-
-   
-
-
-
-
-    if(!localStorage.getItem(user.userName) && userName!==""){
-      
-      toast.success("Account added successfully") 
-      localStorage.setItem(user.userName,userString)
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      toast.success(user)
+    } catch (error) {
+      toast.error(error.message);
     }
-    else{
-      toast.error("Invalid data");
-     
-    }
+ 
+
+
   };
+
 
   return (
     <div>

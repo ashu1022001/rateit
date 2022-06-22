@@ -9,7 +9,7 @@
     position: relative;
     height: 650px;
     
-    width: 500px;
+    max-width: 500px;
     overflow: hidden;
     border-radius: 10px ;
     /* border: #F3F3F4 solid; */

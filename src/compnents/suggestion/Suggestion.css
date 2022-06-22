@@ -24,9 +24,12 @@
     width: 80%;
     border-radius: 5px;
     margin: 10px;
+    height: 180px;
     gap: 10px;
     padding: 10px;
+    transition: .5s ease;
     justify-content: center;
+    overflow: hidden;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
 }
@@ -41,4 +44,28 @@
 .user-box img{
     width: 100%;
     height: 100%;
+}
+/* .show-more{
+    height:200px;
+} */
+
+
+.show-more{
+    transition: 0.2 sec ease;
+    height:580px;
+}
+.show-more-btn{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    outline: none;
+    border: none;
+    background-color: white;
+    height: 25px;
+    color:#672EE3 ;
+    cursor: pointer;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+
+    /* transform: translateY(50%) */
 }

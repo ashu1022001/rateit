@@ -1,0 +1,38 @@
+.user-profile-container{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.user-info{
+    display: flex;
+    justify-content: space-around;
+    min-width: 400px;
+    max-width: 600px;
+    align-items: center;
+    margin: 5%;
+}
+.user-image{
+    width: 150px;
+    height: 150px;
+    clip-path: circle();
+}
+.user-image img{
+    height: 100%;
+    width: 100%;
+}
+
+.user-profile-detail{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    height: 150px;
+}
+
+.user-posts{
+    border-top: 1px solid rgb(217, 217, 217);
+    max-width: 1190px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
