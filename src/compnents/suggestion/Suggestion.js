@@ -40,7 +40,7 @@ export default function Suggestion() {
             <img src="/img/ashu.jpg" alt="userimage" />
           </span>
           <span className="user-name">
-          <h5>ashutoshsingh</h5>
+          <h5>{localStorage.key(0)}</h5>
           <h6>Ashutosh Singh</h6>
           </span>
 

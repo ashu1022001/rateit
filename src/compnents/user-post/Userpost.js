@@ -25,7 +25,7 @@ function Userpost(props) {
           <span className="user-post-name">{props.name}</span>
           <span className="user-post-caption">{props.caption}</span>
         </span>
-        <span className="user-post-reacts">{props.reaction}{emos[Math.floor((props.reaction)%4)]}</span>
+        <span className="user-post-reacts"><span>{props.reaction}</span> <span> {emos[Math.floor((props.reaction)%4)]}</span></span>
       </div>
     </div>
   );

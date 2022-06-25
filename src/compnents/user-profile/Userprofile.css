@@ -23,7 +23,8 @@
 }
 
 .user-profile-detail{
-    width: 150px;
+    width: 200px;
+    justify-content:space-around ;
     display: flex;
     align-items: center;
     height: 150px;

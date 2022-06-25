@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Userprofile from "./compnents/user-profile/Userprofile";
+import ProtectedRoutes from "./compnents/ProtectedRoutes";
 
 
 
@@ -23,9 +24,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/rateit" element={<Rateit />} />
         <Route path="/some" element={<Some />}></Route>
+        <Route  element={<ProtectedRoutes/>}>
+        <Route path="/rateit" element={<Rateit />} />
+        
         <Route path="/rateit/user" element={<Userprofile/>}></Route>
+        </Route>
       </Routes>
     </Router>
     </>

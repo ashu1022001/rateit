@@ -8,6 +8,11 @@ function UserPopOver() {
    navigate("/rateit/user", { replace: true });
    }
 
+   const logoutHandler =() =>{
+    localStorage.clear();
+    navigate("/",{replace:true});
+   }
+
   return (
     <div className="user-pop-over-cont">
       <div>
@@ -20,7 +25,7 @@ function UserPopOver() {
       </div>
       <div>
       <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
-      <span>logout</span>
+      <span onClick={logoutHandler}>logout</span>
       </div>
     </div>
   );

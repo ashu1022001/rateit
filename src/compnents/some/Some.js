@@ -1,63 +1,36 @@
-import React, { useEffect, useState } from 'react'
-// import modal from "react-modal"
-// import {db} from "../firebase/firebase"
-// import {collection, getDocs} from "firebase/firestore"
-// import { async } from '@firebase/util'
+import { addDoc, collection } from 'firebase/firestore';
+import React from 'react'
+import {useState,useEffect} from 'react'
+import {db} from "../firebase/firebase"
 
-const Some = () => {
-// const [users,setUsers] = useState([]);
-// const userCollectionref = collection(db,"users");
-
-// useEffect(()=>{
-
-//   const getUsers = async () =>{
-//     const data = await getDocs(userCollectionref);
-//     setUsers(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
-
-//   }
-const [userPost,setUserPost] = useState([]);
-useEffect(()=>{
-    fetch("https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca/post?limit=10",{
-    headers: {
+function Some() {
+  const [users, setUsers] = useState([]);
+  const userCollectionRef = collection(db,"users");
+  useEffect(() => {
+    fetch("https://dummyapi.io/data/v1/user?limit=10",{
+      headers:{
         "app-id": "62adde4072c63ad0c100fa56",
-      }}
-    )
-      .then((posts) => posts.json())
-      .then((posts) => posts).then(posts => setUserPost(posts.data));
+      }
+    }).
+    then((users)=>users.json()).
+    then((users)=> setUsers(users.data));
+  }, [])
 
-},[])
+  
+  return(<div>
+{users.map((user)=>{
+  return(
+    addDoc(userCollectionRef,{
+      id:user.id,
+      fname:user.firstName,
+      lname:user.lastName,
 
-console.log(userPost[0]?.id)
-
-
-
-return (
-<div>
-{userPost.map((post)=>{
-    return(
-       <p>{post.owner.firstName}</p> 
-    )
+    })
+  )
 })}
 </div>
-)
-
-// getUsers();
-// },[users])
-
-//  return (
-//   <div>
-//   {
-//     users.map((user)=>{
-//       return(
-//         <div>
-//         {user.age}
-//         {user.name}
-//         </div>
-//       )
-//     })
-//   }
-//   </div>
-//  )
+  )
+  
 }
 
 export default Some

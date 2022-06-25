@@ -21,6 +21,7 @@ export const Login = () => {
 
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  
 
   
 
@@ -32,6 +33,7 @@ export const Login = () => {
         email,
         password
       );
+      localStorage.setItem(email,setPassword);
        navigate("/rateit", { replace: true });
     } catch (error) {
       toast.error(error.message)
