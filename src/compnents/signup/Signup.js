@@ -8,7 +8,8 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import { auth ,database } from "../firebase/firebase";
+import { push,onValue,ref } from "firebase/database";
 import {toast} from "react-toastify"
 import {collection, getDocs,addDoc} from "firebase/firestore"
 import { async } from '@firebase/util'
@@ -24,6 +25,7 @@ function SignUp() {
     const name = e.target.elements.name.value.trim();
     const userName = e.target.elements.username.value.trim();
     const password = e.target.elements.password.value.trim();
+
     try {
       const user = await createUserWithEmailAndPassword(
         auth,
@@ -31,6 +33,13 @@ function SignUp() {
         password
       );
       toast.success(user)
+      push(ref(database,"users"),{
+        email:email,
+        name:name,
+        userName: userName
+   
+   
+       })
     } catch (error) {
       toast.error(error.message);
     }

@@ -1,19 +1,25 @@
-import React, { useState } from "react";
-import "./SuggestedUser.css";
+import React from 'react'
+import "../searchUser/SearchUser.css"
 import Tippy from "@tippyjs/react";
-export default function SuggestedUser(props) {
+import{useState} from "react"
 
-  const [followbtn,setFollowbtn] = useState(true);
-  const [content,setContent] = useState("Add");
 
-  const followFn=()=>{
-    setFollowbtn(false)
-    setContent("Added")
-  }
+
+
+function SearchUser(props) {
+
+    const [followbtn,setFollowbtn] = useState(true);
+    const [content,setContent] = useState("Add");
+    
+    const followFn=()=>{
+      setFollowbtn(false)
+      setContent("Added")
+    }
+
 
 
   return (
-    <div className="sugg-user-container">
+    <div className="search-user-container">
     <span className="sugg-user-cont">
       <span className="sugg-user-img">
         <img src={props.imgUrl} alt="user"></img>
@@ -25,8 +31,10 @@ export default function SuggestedUser(props) {
       <span>
         <Tippy content={content}>
           <button onClick={followFn}>{followbtn ?<i className="fa-solid fa-circle-plus fa-xl"></i>:<i className="fa-solid fa-check fa-xl"></i>}</button>
-        </Tippy>
+  </Tippy>
       </span>
     </div>
-  );
+  )
 }
+
+export default SearchUser
