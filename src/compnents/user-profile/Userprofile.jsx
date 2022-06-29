@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Userpost from "../user-post/Userpost";
 import "./Userprofile.css";
+import{useNavigate} from "react-router-dom"
 
 function Userprofile() {
+  const navigate = useNavigate();
+
   const [userPost, setUserPost] = useState([]);
   useEffect(() => {
     fetch(
@@ -29,7 +32,9 @@ function Userprofile() {
   return (
     <div>
     <div>
-  <i class="fa-solid fa-arrow-left"></i>
+  <i class="fa-solid fa-arrow-left" onClick={() => {
+    navigate("/rateit");
+  }}></i>
     </div>
     <div className="user-profile-container">
     

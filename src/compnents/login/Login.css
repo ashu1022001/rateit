@@ -48,7 +48,7 @@ a{
     
     border-radius: 5px;
 }
-.logo{
+.login-win .logo{
     position: absolute;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     /* left: 40%; */

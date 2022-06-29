@@ -43,15 +43,14 @@
     height: 100%;
 }
 .uname{
-    position: absolute;
-    left: 3%;
+   
     font-weight: bolder;
 }
 
 .picture{
     position: absolute;
     height: 500px;
-    width: 500px;
+    width: 100%;
     top: 50px;
     left: 0;
 
@@ -63,11 +62,7 @@
 
 
 .rate {
-    position: absolute;
-    top: 0;
-    
-    left: 50%;
-    transform: translateX(-50%);
+  
     text-align: center;
     width: 300px;
     height: calc(100% - 22px);
@@ -98,16 +93,15 @@
     position: absolute;
     display: flex;
     height: 100px;
-    width: 500px;
+    width: 100%;
+    justify-content: space-evenly;
     bottom: 0;
     left: 0;
-
-    display: inline-block;
+    align-items: center;
     
 }
 .urated{
-    position: absolute;
-    right: 3%;
+ 
     width: 100px;
     height: 80px;
     display: flex;
@@ -117,12 +111,16 @@
     
     
 }
-.urated .emoji{
-    position: absolute;
-    top: 0;
-}
+
 .totalRatings{
     font-weight: bolder;
     position: absolute;
     bottom: 20px;
+}
+
+@media (max-width:600px) {
+    .content{
+        margin: 10px 0;
+    }
+    
 }

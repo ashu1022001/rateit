@@ -59,8 +59,9 @@ export default function Suggestion() {
             )
           })
         }
-        <button onClick={showMoreFn} className="show-more-btn" >{btnText}</button>
+        
         </div>
+        <button onClick={showMoreFn} className="show-more-btn" >{btnText}</button>
       </div>
   );
 }

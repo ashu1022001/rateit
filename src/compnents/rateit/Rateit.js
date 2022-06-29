@@ -84,43 +84,50 @@ function Rateit() {
 
   const [searchUserInput, setSearchUserInput] = useState("");
 
-  // const searchUser = (e) => {
-  //   e.preventDefault();
-  //   const user = e.target.elements.userName.value.trim();
-  //   if (user) {
-  //     toast.error(`no user found with ${user}`);
-  //   }
-  // };
+  const [menuBtnClicked,setMenuBtnClicked] = useState(false);
+
+ 
+
+
   return (
     <div>
-      <div className="header">
+      <div className={`header ${menuBtnClicked && "new-header"} `}>
+        <div className="head">
+          <div className="search-bar">
+            <div className="search-cont">
+              
+                <input
+                  type="text"
+                  className="search-user"
+                  placeholder="search user.."
+                  name="searchInput"
+                  value={searchUserInput}
+                  onChange={(e) => {
+                    setSearchUserInput(e.target.value);
+                  }}
+                ></input>
+               
+              
+            </div>
+          </div>
+          {searchUserInput && (
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setSearchUserInput("");
+              }}
+            >
+              <i class="fa-solid fa-delete-left "></i>
+            </button>
+          )}
+        </div>
         <div className="logo">
           <h3>
             <span>Rate</span>
             <span className="logoit">it</span>
           </h3>
         </div>
-        <div className="head">
-          <div className="search-bar">
-            <div className="search-cont">
-              {/*<form onSubmit={searchUser}>*/}
-              <input
-                type="text"
-                className="search-user"
-                placeholder="search user.."
-                onChange={(e) => {
-                  setSearchUserInput(e.target.value);
-                }}
-              ></input>
-
-              {/*<button className="search-btn">
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </button>
-              </form>*/}
-            </div>
-          </div>
-        </div>
-        <div className="navigator">
+        <div className={` ${menuBtnClicked && "new-navigator"} navigator`}>
           <ul>
             <li>
               <i
@@ -142,8 +149,7 @@ function Rateit() {
                 style={customStyles}
                 contentLabel="Upload"
               >
-                {/* <h2>Rateit</h2>
-  <button onClick={closeModal}>close</button>*/}
+               
 
                 <Upload></Upload>
               </Modal>
@@ -169,8 +175,35 @@ function Rateit() {
             </li>
           </ul>
         </div>
+        <div className="menu-btn" onClick={()=>setMenuBtnClicked(!menuBtnClicked)}>
+          {(!menuBtnClicked && <i class="fa-solid fa-bars" ></i>) ||( menuBtnClicked && <i class="fa-solid fa-x"></i>)}
+        </div>
       </div>
+
       <div className="main-content">
+        <div className={`${searchUserInput && "searched-cont"}`}>
+          {users
+            .filter((val) => {
+              if (searchUserInput === "") {
+                return;
+              } else if (
+                (
+                  val.firstName.toLowerCase() + val.lastName.toLowerCase()
+                ).includes(searchUserInput.toLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .map((user) => {
+              return (
+                <SearchUser
+                  fname={user.firstName}
+                  lname={user.lastName}
+                  imgUrl={user.picture}
+                ></SearchUser>
+              );
+            })}
+        </div>
         <div>
           {imageList.map((post) => {
             return (
@@ -189,34 +222,7 @@ function Rateit() {
             );
           })}
         </div>
-        <div>
-          <Suggestion className="sugg-page"></Suggestion>
-        </div>
-        <div className={`${searchUserInput && "searched-cont"}`}>
-          {users
-            .filter((val) => {
-              if (searchUserInput === "") {
-                return;
-              } else if (
-                val.firstName
-                  .toLowerCase()
-                  .includes(searchUserInput.toLowerCase())
-              ) {
-                return val;
-              }
-           
-            })
-            .map((user) => {
-              return (
-              
-               <SearchUser
-                  fname={user.firstName}
-                  lname={user.lastName}
-                  imgUrl={user.picture}
-                ></SearchUser>
-              );
-            })}
-        </div>
+        <Suggestion className="sugg-page"></Suggestion>
       </div>
     </div>
   );
