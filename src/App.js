@@ -12,6 +12,7 @@ import {
 import { ToastContainer } from "react-toastify";
 import Userprofile from "./compnents/user-profile/Userprofile";
 import ProtectedRoutes from "./compnents/ProtectedRoutes";
+import Header from "./compnents/header/Header";
 
 
 
@@ -27,7 +28,6 @@ function App() {
         <Route path="/some" element={<Some />}></Route>
         <Route  element={<ProtectedRoutes/>}>
         <Route path="/rateit" element={<Rateit />} />
-        
         <Route path="/rateit/user" element={<Userprofile/>}></Route>
         </Route>
       </Routes>

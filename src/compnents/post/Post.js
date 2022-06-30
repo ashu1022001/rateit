@@ -7,6 +7,7 @@ function Post(props) {
   const numbers = props.numbers;
   const emojiCount = numbers % 5;
   const [emojis, setEmojis] = useState("😑");
+  const [rating5,setRating5] = useState(false)
   const emos = ["😠", "😦", "😑", "😀", "😍"];
   const [i, setI] = useState(0);
 
@@ -30,7 +31,7 @@ function Post(props) {
         </div>
 
         <div className="rate">
-          <div className="emoji">{emojis}</div>
+          <div className="emoji"><div className={`${rating5 && "rating"} `}>{emojis}</div></div>
           <input
             type="range"
             min="0"
@@ -39,7 +40,9 @@ function Post(props) {
             defaultValue="50"
             onMouseMove={function (e) {
               setI(Math.floor(e.target.value / 20));
+              setRating5(!rating5);
               setEmojis(emos[i]);
+              
             }}
           ></input>
         </div>

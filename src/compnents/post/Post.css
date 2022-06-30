@@ -63,7 +63,10 @@
 
 .rate {
   
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 300px;
     height: calc(100% - 22px);
 
@@ -73,6 +76,12 @@
 
     font-size: 30px;
     height: 40px;
+    
+  }
+  .rating{
+    
+    animation: shaking .3s ease ;
+    animation-delay:.3s ;
   }
   
   .rate input {
@@ -118,9 +127,31 @@
     bottom: 20px;
 }
 
+
 @media (max-width:600px) {
     .content{
         margin: 10px 0;
     }
     
 }
+
+@keyframes shaking{
+    0%{
+      transform: translateX(50%)
+    }
+
+    33%{
+        transform: translateX(0);
+    }
+    66%{
+        transform: translateX(-50%)
+      }
+  
+      100%{
+          transform: translateX(0);
+      }
+
+        
+     
+      
+  }

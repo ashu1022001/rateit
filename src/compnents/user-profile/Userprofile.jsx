@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Userpost from "../user-post/Userpost";
 import "./Userprofile.css";
 import{useNavigate} from "react-router-dom"
+import Header from "../header/Header";
 
 function Userprofile() {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ function Userprofile() {
 
   return (
     <div>
+    <Header/>
     <div>
   <i class="fa-solid fa-arrow-left" onClick={() => {
     navigate("/rateit");

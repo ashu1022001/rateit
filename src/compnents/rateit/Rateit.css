@@ -12,10 +12,11 @@ body{
     width: 100%;
     height: 70px;
     top: 0;
+    transition: .3s all;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    z-index: 1;
+    z-index: 2;
    border-bottom:2px #F3F3F4 solid ;
 }
 .logoit{
@@ -27,7 +28,7 @@ body{
     font-weight: bolder;
 }
 .head{
-    width: 205px;
+    width: 210px;
    
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
@@ -112,6 +113,7 @@ align-items: center;
     align-items: center;
     padding: 0;
     width: 20%;
+    transition: 0.2s ease;
     height: 100%;
 }
 
@@ -138,13 +140,7 @@ align-items: center;
 
 
 
-.rating-10{
-    margin: 0;
-    width: 18px;
-    height: 50px;
-    display: inline-block;
 
-}
 #urated{
     position: absolute;
     right: 0;
@@ -158,7 +154,9 @@ align-items: center;
     right: 10%;
 }
 .react-tiny-popover-container{
-    z-index: 1;
+    position: fixed;
+
+    z-index: 2;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     padding: 10px;
     background-color:white;
@@ -175,6 +173,9 @@ align-items: center;
     padding: 5px;
 }
 
+.search-bar{
+    display: flex;
+}
 .user-pop-over-cont div{
     margin: 6px;
     display: flex;
@@ -202,17 +203,17 @@ align-items: center;
 .searched-cont{
     position: absolute;
     background-color: white;
-    z-index: 3;
-    /* top: 100px; */
+    z-index: 1;
+    top:70px;
     min-width: 0;
-    left: 7%;
+    font-size: medium;
+
     border-radius: 5px;
     width: 200px;
     display: flex;
     flex-direction: column;
     
     align-items:center ;
-    /* overflow: hidden; */
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
@@ -223,9 +224,55 @@ align-items: center;
 
 .menu-btn{
     display: none;
-    
+   
+
 }
 
+
+.fa-bell:hover{
+
+    animation: shake .5s;
+
+}
+@keyframes shake{
+    0%{
+      transform: rotate(45deg);
+    }
+    10%{
+      transform: rotate(0deg)
+    }
+      
+    20%{
+      transform: rotate(-45deg)
+    }
+    30%{
+      transform: rotate(0deg)
+    }
+    40%{
+        transform: rotate(45deg);
+      }
+      50%{
+        transform: rotate(0deg)
+      }
+        
+      60%{
+        transform: rotate(-45deg)
+      }
+      70%{
+        transform: rotate(0deg)
+      }
+      80%{
+        transform: rotate(45deg);
+      }
+      90%{
+        transform: rotate(0deg)
+      }
+        
+      100%{
+        transform: rotate(-45deg)
+      }
+      
+  }
 
 
 /* media */
