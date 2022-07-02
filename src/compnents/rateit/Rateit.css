@@ -234,6 +234,8 @@ align-items: center;
     animation: shake .5s;
 
 }
+
+
 @keyframes shake{
     0%{
       transform: rotate(45deg);
@@ -285,7 +287,7 @@ align-items: center;
     } 
     .navigator{
         position: absolute;
-        top: -100%;
+        bottom: -1000px;
     }
 
     .new-header{

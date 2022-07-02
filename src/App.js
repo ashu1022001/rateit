@@ -6,13 +6,13 @@ import Rateit from "./compnents/rateit/Rateit";
 import Some from "./compnents/some/Some";
 import {
   BrowserRouter as Router,
-  Route,
-  Routes,
+ 
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Userprofile from "./compnents/user-profile/Userprofile";
 import ProtectedRoutes from "./compnents/ProtectedRoutes";
 import Header from "./compnents/header/Header";
+import { Routes, Route } from "react-router-loading";
 
 
 
@@ -23,12 +23,12 @@ function App() {
 
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Login />}  />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/some" element={<Some />}></Route>
+        <Route path="/some" element={<Some />} ></Route>
         <Route  element={<ProtectedRoutes/>}>
-        <Route path="/rateit" element={<Rateit />} />
-        <Route path="/rateit/user" element={<Userprofile/>}></Route>
+        <Route path="/rateit" element={<Rateit />}  />
+        <Route path="/rateit/user" element={<Userprofile/>} ></Route>
         </Route>
       </Routes>
     </Router>

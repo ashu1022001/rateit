@@ -1,6 +1,5 @@
 import "./Rateit.css";
 import React, { useState } from "react";
-import "https://kit.fontawesome.com/fe838ae10b.js";
 import { useEffect } from "react";
 import Post from "../post/Post";
 import Suggestion from "../suggestion/Suggestion";

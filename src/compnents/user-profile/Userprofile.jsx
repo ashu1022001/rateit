@@ -3,6 +3,8 @@ import Userpost from "../user-post/Userpost";
 import "./Userprofile.css";
 import{useNavigate} from "react-router-dom"
 import Header from "../header/Header";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 
 function Userprofile() {
   const navigate = useNavigate();
@@ -49,7 +51,7 @@ function Userprofile() {
             {" "}
             <span><h3>{name}</h3></span>{" "}
             <span>
-              <i class="fa-solid fa-user-pen"></i>
+              <FontAwesomeIcon icon={faUserPen}/>
             </span>
           
         </span>

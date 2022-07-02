@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./SuggestedUser.css";
 import Tippy from "@tippyjs/react";
+import 'tippy.js/dist/tippy.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 export default function SuggestedUser(props) {
 
   const [followbtn,setFollowbtn] = useState(true);
@@ -24,7 +27,7 @@ export default function SuggestedUser(props) {
       </span>
       <span>
         <Tippy content={content}>
-          <button onClick={followFn}>{followbtn ?<i className="fa-solid fa-circle-plus fa-xl"></i>:<i className="fa-solid fa-check fa-xl"></i>}</button>
+          <button onClick={followFn}>{followbtn ?<FontAwesomeIcon icon={faCirclePlus} fontSize={20}/>:<FontAwesomeIcon icon={faCheck} fontSize={20}/>}</button>
         </Tippy>
       </span>
     </div>

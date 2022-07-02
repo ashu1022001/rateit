@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket, faCircleUser, faGear } from "@fortawesome/free-solid-svg-icons";
 
 function UserPopOver() {
 
@@ -16,15 +18,15 @@ function UserPopOver() {
   return (
     <div className="user-pop-over-cont">
       <div>
-      <span><i class="fa-regular fa-circle-user"></i></span>
+      <span><FontAwesomeIcon icon={faCircleUser}></FontAwesomeIcon></span>
       <span onClick={userProfile}>profile</span>
       </div>
       <div>
-      <span><i class="fa-solid fa-gear"></i></span>
+      <span><FontAwesomeIcon icon={faGear}/></span>
       <span>settings</span>
       </div>
       <div>
-      <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+      <span><FontAwesomeIcon icon={faArrowRightFromBracket}/></span>
       <span onClick={logoutHandler}>logout</span>
       </div>
     </div>

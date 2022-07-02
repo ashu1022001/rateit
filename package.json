@@ -1,9 +1,13 @@
 {
-  "homepage": "https://ashu1022001.github.io/rateit",
-  "name": "hello-world",
+  "homepage": "https://rateit-5f983.web.app",
+  "name": "rateit", 
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^13.5.0",
@@ -15,19 +19,19 @@
     "react-modal": "^3.15.1",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-router-loading": "^1.0.0",
+    "react-scripts": "^5.0.1",
     "react-time-ago": "^7.2.1",
     "react-tiny-popover": "^7.0.1",
     "react-toastify": "^9.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +52,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "react-app-rewired": "^2.2.1"
   }
 }

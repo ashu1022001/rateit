@@ -5,7 +5,9 @@ import { Popover } from "react-tiny-popover";
 import { useNavigate } from "react-router-dom";
 import UserPopOver from "../pop-overs/UserPopOver";
 import Modal from "react-modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Upload from "../uplaod/Upload";
+import { faArrowUpFromBracket, faBars, faBell, faDeleteLeft, faHouse, faUser, faX, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   let navigate = useNavigate();
@@ -81,7 +83,7 @@ function Header() {
                 setSearchUserInput("");
               }}
             >
-              <i class="fa-solid fa-delete-left "></i>
+            <FontAwesomeIcon icon={faDeleteLeft}/>
             </button>
           )}
         </div>
@@ -119,18 +121,21 @@ function Header() {
       <div className={` ${menuBtnClicked && "new-navigator"} navigator`}>
         <ul>
           <li>
-            <i
-              class="fa-solid fa-house"
-              onClick={() => {
-                navigate("/rateit");
-              }}
-            ></i>
+          
+            <FontAwesomeIcon  onClick={() => {
+              navigate("/rateit");
+            }}
+            
+            icon={faHouse} />
+             
+            
           </li>
           <li>
-            <i
+            <FontAwesomeIcon
               onClick={openModal}
-              class="fa-solid fa-arrow-up-from-bracket"
-            ></i>
+              icon={faArrowUpFromBracket}
+
+            />
             <Modal
               isOpen={modalIsOpen}
               onAfterOpen={afterOpenModal}
@@ -142,7 +147,7 @@ function Header() {
             </Modal>
           </li>
           <li>
-            <i class="fa-solid fa-bell"></i>
+            <FontAwesomeIcon icon={faBell}/>
           </li>
           <li>
             <Popover
@@ -156,7 +161,7 @@ function Header() {
               }
             >
               <div onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
-                <i class="fa-solid fa-user"></i>
+                <FontAwesomeIcon icon={faUser}/>
               </div>
             </Popover>
           </li>
@@ -166,8 +171,8 @@ function Header() {
         className="menu-btn"
         onClick={() => setMenuBtnClicked(!menuBtnClicked)}
       >
-        {(!menuBtnClicked && <i class="fa-solid fa-bars"></i>) ||
-          (menuBtnClicked && <i class="fa-solid fa-x"></i>)}
+        {(!menuBtnClicked && <FontAwesomeIcon icon={faBars}/>) ||
+          (menuBtnClicked && <FontAwesomeIcon icon={faXmark} fontSize={30}/>)}
       </div>
     </div>
   );
