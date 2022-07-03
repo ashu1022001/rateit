@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { storage } from "../firebase/firebase";
 import { ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {   } from "@fortawesome/free-solid-svg-icons";
 import "./Upload.css";
 import { toast } from "react-toastify";
 
 function Upload() {
+  
   const [imageUpload, setImageUpload] = useState(null);
 
   const uploadHandler = () => {
@@ -22,12 +25,9 @@ function Upload() {
 
   return (
     <div className="upload-image-cont">
-      {/* <input className="custom-file-input"
-        type="file"
-        onChange={(e) => {
-          setImageUpload(e.target.files[0]);
-        }}
-      ></input>*/}
+    
+  
+     
       <label class="custom-file-upload">
         <input type="file"  onChange={(e) => {
           setImageUpload(e.target.files[0]);
