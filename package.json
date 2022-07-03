@@ -1,6 +1,5 @@
 {
   "homepage": "https://rateit-5f983.web.app",
-  "name": "rateit", 
   "version": "0.1.0",
   "private": true,
   "dependencies": {

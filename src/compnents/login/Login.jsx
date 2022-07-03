@@ -43,8 +43,7 @@ export const Login = () => {
 
   return (
     <div>
-      <div className="container">
-        <img src="/img/login-bg.jpg"></img>
+      <div className="login-container">
         <div className="login">
           <div className="login-win">
             <div className="logo">
@@ -83,7 +82,11 @@ export const Login = () => {
               </p>
             </div>
           </div>
+          <div className="login-bg-image">
+          <img src={("/img/login-bg.jpg")} alt="login banner" />
+          </div>
         </div>
+    
       </div>
     </div>
   );

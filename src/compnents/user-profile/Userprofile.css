@@ -7,7 +7,7 @@
 .user-info{
     display: flex;
     justify-content: space-around;
-    min-width: 400px;
+    min-width: 360px;
     max-width: 600px;
     align-items: center;
     margin: 5%;

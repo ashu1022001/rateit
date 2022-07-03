@@ -280,6 +280,11 @@ align-items: center;
 /* media */
 
 @media screen and (max-width:600px){
+
+
+    .content{
+        width: 95%;
+    }
     
     .menu-btn{
         display: block;

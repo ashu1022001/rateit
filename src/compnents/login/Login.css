@@ -8,16 +8,22 @@ body{
     color: #E53528;
 }
 
-.container{
+.login-container{
+    display: flex;
+    justify-content: space-evenly;
    
     background-repeat: no-repeat ;
 
 }
-.container img{
-     position: absolute;
-    width:600px;
+.login-bg-image{
+    position: absolute;
+    width:45%;
     height: 100vh;
     right: 10%;
+}
+.login-bg-image img{
+    width: 100%;
+    height: 100%;
 }
 
 .invalidMsg{
@@ -34,22 +40,24 @@ a{
 .login{
     position: relative;
     width: 100%;
-    height: 600px;
+    display: flex;
+    justify-content: space-around;
+    height: 100vh
 }
 .login-win{
     position: absolute;
     height: 350px;
+    z-index: 1;
     width: 300px;
-   
     left: 20%;
-    top:15% ;
+    top: 15%;
     display: flex;
-    justify-content: center;
-    
-    border-radius: 5px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .login-win .logo{
-    position: absolute;
+    /* position: absolute; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     /* left: 40%; */
     /* left: 50%;
@@ -60,7 +68,7 @@ a{
 }
 
 .login-form{
-position: absolute;
+/* position: absolute; */
 width: 100%;
 height: 50%;
 top:100px ;
@@ -85,12 +93,32 @@ top:100px ;
     background-color: #E53528;
     cursor: pointer;
 }
-.signup{
-    position: absolute;
-    height: 75px;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-    text-decoration: none;
+
+@media (max-width:600px){
+    .login-container{
+        width: 100%;
+        height: 100vh;
+    }
+    .login-bg-image{
+        display: none;
+    }
+    .login{
+        justify-content: center;
+        align-items: center;
+    }
+    .login-form{
+        position: static;
+    }
+    .login-container img{
+        display: none;
+    }
+    .login-win{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .login-win .logo{
+        top: 0;
+    }
 
 }

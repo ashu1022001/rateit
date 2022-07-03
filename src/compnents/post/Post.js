@@ -6,10 +6,9 @@ import ReactTimeAgo from "react-time-ago";
 function Post(props) {
   const numbers = props.numbers;
   const emojiCount = numbers % 5;
-  const [emojis, setEmojis] = useState("😑");
-  const [rating5,setRating5] = useState(false)
+  const [emojiIndex, setEmojisIndex] = useState(0);
   const emos = ["😠", "😦", "😑", "😀", "😍"];
-  const [i, setI] = useState(0);
+  
 
   return (
     <div className="content">
@@ -31,18 +30,23 @@ function Post(props) {
         </div>
 
         <div className="rate">
-          <div className="emoji"><div className={`${rating5 && "rating"} `}>{emojis}</div></div>
+          {emos.map(
+            (e, i) =>
+              i === emojiIndex && (
+                <div className="emoji" key={e}>
+                  <div className={`rating`}>{e}</div>
+                </div>
+              )
+          )}
           <input
             type="range"
             min="0"
             max="99"
             step="1"
             defaultValue="50"
-            onMouseMove={function (e) {
-              setI(Math.floor(e.target.value / 20));
-              setRating5(!rating5);
-              setEmojis(emos[i]);
-              
+            onChange={function (e) {
+              let i = Math.floor(e.target.value / 20);
+              setEmojisIndex(i);
             }}
           ></input>
         </div>

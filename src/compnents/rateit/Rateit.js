@@ -4,16 +4,11 @@ import { useEffect } from "react";
 import Post from "../post/Post";
 import Suggestion from "../suggestion/Suggestion";
 
-
-import { useNavigate } from "react-router-dom";
-
 import { storage } from "../firebase/firebase";
-import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
 import Header from "../header/Header";
 
 function Rateit() {
-  let navigate = useNavigate();
-
   //displaying uploaded images
   const [imageList, setImageList] = useState([]);
   const imageListRef = ref(storage, "images/");
@@ -48,7 +43,13 @@ function Rateit() {
         <div>
           {imageList.map((post) => {
             return (
-              <Post name="ashutosh" url={post} numbers="" userDp="" date="" />
+              <Post
+                name="ashutosh"
+                url={post}
+                numbers=""
+                userDp={"/img/ashu.jpg"}
+                date=""
+              />
             );
           })}
           {posts.map((post) => {
