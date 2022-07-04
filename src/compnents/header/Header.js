@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import SearchUser from "../searchUser/SearchUser";
-import { Link } from "react-router-dom";
+import React, {  useState } from "react";
+
 import SearchBar from "../searchBar/SearchBar";
 import { Popover } from "react-tiny-popover";
 import { useNavigate } from "react-router-dom";
 import UserPopOver from "../pop-overs/UserPopOver";
 import Modal from "react-modal";
+import useUser from "../Store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Upload from "../uplaod/Upload";
 import {
   faArrowUpFromBracket,
   faBars,
   faBell,
-  faDeleteLeft,
+  faArrowLeft,
   faHouse,
   faSearch,
   faUser,
@@ -20,7 +20,10 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
+
 function Header() {
+  const currUser = useUser(state=>state.currUser);
+ 
   let navigate = useNavigate();
 
   const [menuBtnClicked, setMenuBtnClicked] = useState(false);
@@ -50,10 +53,12 @@ function Header() {
 
   const customStyles2 = {
     content: {
-      top: "15%",
-      left: "50%",
-      height: "75vh",
-      width: "90%",
+      // top: "15%",
+      // left: "50%",
+      position: "fixed",
+      inset:"0",
+      height: "100vh",
+      width: "100vw",
       padding: "0",
       display: "flex",
       flexDirection: "coloumn",
@@ -61,7 +66,7 @@ function Header() {
       // bottom: "auto",
       // marginRight: "-50%",
       // transition: "2s ease",
-      transform: "translateX(-50%)",
+      // transform: "translateX(-50%)",
     },
   };
 
@@ -94,7 +99,7 @@ function Header() {
           <li>
             <FontAwesomeIcon
               onClick={() => {
-                navigate("/rateit");
+                navigate(`/rateit?email=${currUser.email}`,{replace:true});
               }}
               icon={faHouse}
             />
@@ -111,7 +116,7 @@ function Header() {
             >
             <div className="modal-search">
             <FontAwesomeIcon
-                icon={faXmark}
+                icon={faArrowLeft}
                 onClick={()=>{setIsTwoOpen(false)
                 }}
                 fontSize={20}
@@ -147,7 +152,7 @@ function Header() {
               onClickOutside={() => setIsPopoverOpen(false)}
               content={
                 <div>
-                  <UserPopOver />
+                  <UserPopOver  />
                 </div>
               }
             >

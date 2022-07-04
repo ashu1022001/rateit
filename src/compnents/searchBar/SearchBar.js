@@ -1,6 +1,7 @@
 import React ,{useState,useEffect} from 'react'
+import "./SearchBar.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faDeleteLeft, } from "@fortawesome/free-solid-svg-icons";
+import {  faDeleteLeft,faX } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
 import SearchUser from "../searchUser/SearchUser";
 
@@ -20,6 +21,7 @@ function SearchBar() {
     
       },[])
   return (
+    <div className='search-bar-container'>
     <div className="head">
         <div className="search-bar">
           <div className="search-cont">
@@ -41,35 +43,37 @@ function SearchBar() {
                 setSearchUserInput("");
               }}
             >
-            <FontAwesomeIcon icon={faDeleteLeft}/>
+            <FontAwesomeIcon icon={faX}/>
             </button>
           )}
         </div>
 
-        <div className={`${searchUserInput && "searched-cont"}`}>
-          {users
-            .filter((val) => {
-              if (searchUserInput === "") {
-                return;
-              } else if (
-                (
-                  val.firstName.toLowerCase() + val.lastName.toLowerCase()
-                ).includes(searchUserInput.toLowerCase())
-              ) {
-                return val;
-              }
-            })
-            .map((user) => {
-              return (
-                <SearchUser
-                  fname={user.firstName}
-                  lname={user.lastName}
-                  imgUrl={user.picture}
-                ></SearchUser>
-              );
-            })}
-        </div>
       </div>
+      
+      <div className={`${searchUserInput && "searched-cont"}`}>
+      {users
+        .filter((val) => {
+          if (searchUserInput === "") {
+            return;
+          } else if (
+            (
+              val.firstName.toLowerCase() + val.lastName.toLowerCase()
+            ).includes(searchUserInput.toLowerCase())
+          ) {
+            return val;
+          }
+        })
+        .map((user) => {
+          return (
+            <SearchUser
+              fname={user.firstName}
+              lname={user.lastName}
+              imgUrl={user.picture}
+            ></SearchUser>
+          );
+        })}
+    </div>
+    </div>
   )
 }
 

@@ -1,17 +1,25 @@
 import React from "react";
+
 import { useNavigate } from "react-router-dom";
+import useUser from "../Store";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket, faCircleUser, faGear } from "@fortawesome/free-solid-svg-icons";
 
 function UserPopOver() {
+  const currUser = useUser(state=>state.currUser);
+  const logout = useUser(state=> state.removeCurrUser)
+
+ 
 
   let navigate = useNavigate();
   const  userProfile= ()=>{
-   navigate("/rateit/user", { replace: true });
+   navigate(`/rateit/user?email=${currUser.email}`, { replace: true });
    }
 
    const logoutHandler =() =>{
     localStorage.clear();
+    logout();
     navigate("/",{replace:true});
    }
 

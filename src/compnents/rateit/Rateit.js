@@ -2,13 +2,38 @@ import "./Rateit.css";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import Post from "../post/Post";
+import create from "zustand";
 import Suggestion from "../suggestion/Suggestion";
+import { getDatabase,onValue,ref as dbref, query, orderByChild, equalTo, get, limitToFirst, DataSnapshot } from "firebase/database";
 
-import { storage } from "../firebase/firebase";
+import { storage,db,database} from "../firebase/firebase";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import Header from "../header/Header";
+import { useLocation } from "react-router";
 
 function Rateit() {
+
+  const [currUser,setCurrUser] = useState("");
+  
+  
+
+  const useQuery=()=>{
+     return new URLSearchParams(useLocation().search)
+  }
+
+  
+  let currUserEmail =useQuery().get("email");
+
+  const user =query(dbref(database,'users'),orderByChild('email'),equalTo(currUserEmail))
+ 
+ 
+
+  
+
+  
+ 
+
+
   //displaying uploaded images
   const [imageList, setImageList] = useState([]);
   const imageListRef = ref(storage, "images/");
@@ -33,21 +58,30 @@ function Rateit() {
         });
       });
     });
-  }, []);
+
+    onValue(user,(snapshot)=>{
+      let data = snapshot.val();
+      let currUserKey =(Object.keys(data))
+      setCurrUser(data[currUserKey]);
+    })
+
+  }, [localStorage]);
+  localStorage.setItem("currUser",JSON.stringify(currUser));
 
   return (
     <div>
-      <Header></Header>
+      <Header ></Header>
 
       <div className="main-content">
         <div>
           {imageList.map((post) => {
             return (
               <Post
-                name="ashutosh"
+               
+                name={currUser.userName}
                 url={post}
                 numbers=""
-                userDp={"/img/ashu.jpg"}
+                userDp={`${currUser.profilePicUrl || "/img/userprofile.png"}`}
                 date=""
               />
             );
@@ -55,6 +89,7 @@ function Rateit() {
           {posts.map((post) => {
             return (
               <Post
+                currUser = {currUser}
                 name={post.owner.firstName}
                 url={post.image}
                 numbers={post.likes}
@@ -64,7 +99,7 @@ function Rateit() {
             );
           })}
         </div>
-        <Suggestion className="sugg-page"></Suggestion>
+        <Suggestion currUser={currUser} className="sugg-page"></Suggestion>
       </div>
     </div>
   );

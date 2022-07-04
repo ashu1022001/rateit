@@ -1,6 +1,6 @@
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -15,16 +15,8 @@ import { useState } from "react";
 import { async } from "@firebase/util";
 
 export const Login = () => {
- 
-
- 
-
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  
-
-  
-
   let navigate = useNavigate();
   const loginfn = async (e) => {
     try {
@@ -33,8 +25,9 @@ export const Login = () => {
         email,
         password
       );
-      localStorage.setItem(email,setPassword);
-       navigate("/rateit", { replace: true });
+      
+      localStorage.setItem(email,password);
+       navigate(`/rateit?email=${email}`, { replace: true });
     } catch (error) {
       toast.error(error.message)
     }

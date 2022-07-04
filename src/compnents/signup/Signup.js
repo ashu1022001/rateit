@@ -1,12 +1,13 @@
 import "./Signup.css";
 
-import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Link ,useNavigate} from "react-router-dom";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, database } from "../firebase/firebase";
 import { push, ref } from "firebase/database";
 import { toast } from "react-toastify";
 
 function SignUp() {
+  let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -16,13 +17,23 @@ function SignUp() {
     const password = e.target.elements.password.value.trim();
 
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password,);
-      toast.success(user);
+       await createUserWithEmailAndPassword(auth, email, password,).then
+       
+      ((userCedential)=>{
+        localStorage.clear();
+       localStorage.setItem("email",email)
+       navigate(`/rateit?email=${email}`, { replace: true });
+        const user = userCedential.user;
       push(ref(database, "users"), {
         email: email,
         name: name,
         userName: userName,
       });
+      toast.success("Account added")
+
+
+      })
+      
     } catch (error) {
       toast.error(error.message);
     }

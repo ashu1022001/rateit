@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import "./Suggestion.css"
+import useUser from "../Store";
+
 import SuggestedUser from "../suggestedUser/SuggestedUser";
 
 
 export default function Suggestion() {
+  const currUser = useUser(state=>state.currUser);
+ 
 
   const [users,setUsers] = useState([]);
   const [showMoreBtn,setShowMoreBtn] = useState(false);
@@ -37,11 +41,11 @@ export default function Suggestion() {
       <div className="suggestion-cont">
         <div className="current-user">
           <span className="user-box">
-            <img src="/img/ashu.jpg" alt="userimage" />
+            <img src={`${currUser.profilePicUrl || "/img/userprofile.png"}`} alt="userimage" />
           </span>
           <span className="user-name">
-          <h5>{localStorage.key(0)}</h5>
-          <h6>Ashutosh Singh</h6>
+          <h5>{currUser.userName}</h5>
+          <h6>{currUser.name}</h6>
           </span>
 
         </div>
