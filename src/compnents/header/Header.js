@@ -16,7 +16,7 @@ import {
   faHouse,
   faSearch,
   faUser,
-  faX,
+
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 

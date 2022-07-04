@@ -1,7 +1,7 @@
 import "./Signup.css";
 
 import { Link ,useNavigate} from "react-router-dom";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, database } from "../firebase/firebase";
 import { push, ref } from "firebase/database";
 import { toast } from "react-toastify";

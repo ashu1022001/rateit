@@ -19,7 +19,7 @@ function UserPopOver() {
 
    const logoutHandler =() =>{
     localStorage.clear();
-    logout();
+    // logout();
     navigate("/",{replace:true});
    }
 

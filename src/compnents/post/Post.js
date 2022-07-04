@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Post.css";
-import { useEffect } from "react";
 import ReactTimeAgo from "react-time-ago";
 
 function Post(props) {

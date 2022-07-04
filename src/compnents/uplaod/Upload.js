@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { storage } from "../firebase/firebase";
 import { ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {   } from "@fortawesome/free-solid-svg-icons";
 import "./Upload.css";
 import { toast } from "react-toastify";

@@ -41,7 +41,7 @@ export default function Suggestion() {
       <div className="suggestion-cont">
         <div className="current-user">
           <span className="user-box">
-            <img src={`${currUser.profilePicUrl || "/img/userprofile.png"}`} alt="userimage" />
+            <img src={`${"/img/userprofile.png"}`} alt="userimage" />
           </span>
           <span className="user-name">
           <h5>{currUser.userName}</h5>

@@ -2,17 +2,15 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { useNavigate} from "react-router-dom";
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
+  
+  signInWithEmailAndPassword
+  
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 
-import { APP_NAME } from "../../utils/common";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { async } from "@firebase/util";
+
 
 export const Login = () => {
   const [password, setPassword] = useState("");

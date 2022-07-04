@@ -1,8 +1,8 @@
 import React ,{useState,useEffect} from 'react'
 import "./SearchBar.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faDeleteLeft,faX } from "@fortawesome/free-solid-svg-icons";
-import Modal from "react-modal";
+import {  faX } from "@fortawesome/free-solid-svg-icons";
+
 import SearchUser from "../searchUser/SearchUser";
 
 function SearchBar() {

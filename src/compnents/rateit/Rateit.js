@@ -2,11 +2,11 @@ import "./Rateit.css";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import Post from "../post/Post";
-import create from "zustand";
-import Suggestion from "../suggestion/Suggestion";
-import { getDatabase,onValue,ref as dbref, query, orderByChild, equalTo, get, limitToFirst, DataSnapshot } from "firebase/database";
 
-import { storage,db,database} from "../firebase/firebase";
+import Suggestion from "../suggestion/Suggestion";
+import { onValue,ref as dbref, query, orderByChild, equalTo} from "firebase/database";
+
+import { storage,database} from "../firebase/firebase";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import Header from "../header/Header";
 import { useLocation } from "react-router";
@@ -64,8 +64,8 @@ function Rateit() {
       let currUserKey =(Object.keys(data))
       setCurrUser(data[currUserKey]);
     })
-
-  }, [localStorage]);
+    
+  }, []);
   localStorage.setItem("currUser",JSON.stringify(currUser));
 
   return (
@@ -81,7 +81,7 @@ function Rateit() {
                 name={currUser.userName}
                 url={post}
                 numbers=""
-                userDp={`${currUser.profilePicUrl || "/img/userprofile.png"}`}
+                userDp={`${"/img/userprofile.png"}`}
                 date=""
               />
             );
