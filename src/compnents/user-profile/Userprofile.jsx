@@ -20,18 +20,14 @@ import {
 } from "firebase/database";
 
 function Userprofile() {
-  const currUser = useUser((state) => state.currUser);
-  const userName = currUser.userName;
+  // const currUser = useUser((state) => state.currUser);
+  // const userName = currUser.userName;
 
   const [currUserKey, setCurrUserKey] = useState([]);
   // const [dbProfilePicUrl,setDbProfilePicUrl] = useState("");
-  const user = query(
-    dbref(database, "users"),
-    orderByChild("email"),
-    equalTo(currUser.email)
-  );
+ 
 
-  const profilePicRef = ref(storage, `images/profilepics/${userName}/`);
+  // const profilePicRef = ref(storage, `images/profilepics/${userName}/`);
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const customStyles = {
@@ -104,7 +100,7 @@ function Userprofile() {
           </span>
           <span className="user-profile-detail">
             <span>
-              <h3>{userName}</h3>
+              <h3>Ashutosh Singh</h3>
             </span>
             <span>
               <FontAwesomeIcon onClick={openModal} icon={faUserPen} />
@@ -129,7 +125,7 @@ function Userprofile() {
           {userPost.map((post) => {
             return (
               <Userpost
-                name={userName}
+                name={"Ashutosh Singh"}
                 picture={`${ "/img/userprofile.png"} `}
                 caption={post.text}
                 date={post.publishDate}

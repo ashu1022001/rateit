@@ -13,18 +13,18 @@ import { useLocation } from "react-router";
 
 function Rateit() {
 
-  const [currUser,setCurrUser] = useState("");
+  // const [currUser,setCurrUser] = useState("");
   
   
 
-  const useQuery=()=>{
-     return new URLSearchParams(useLocation().search)
-  }
+  // const useQuery=()=>{
+  //    return new URLSearchParams(useLocation().search)
+  // }
 
   
-  let currUserEmail =useQuery().get("email");
+  // let currUserEmail =useQuery().get("email");
 
-  const user =query(dbref(database,'users'),orderByChild('email'),equalTo(currUserEmail))
+  // const user =query(dbref(database,'users'),orderByChild('email'),equalTo(currUserEmail))
  
  
 
@@ -59,14 +59,14 @@ function Rateit() {
       });
     });
 
-    onValue(user,(snapshot)=>{
-      let data = snapshot.val();
-      let currUserKey =(Object.keys(data))
-      setCurrUser(data[currUserKey]);
-    })
+    // onValue(user,(snapshot)=>{
+    //   let data = snapshot.val();
+    //   let currUserKey =(Object.keys(data))
+    //   setCurrUser(data[currUserKey]);
+    // })
     
   }, []);
-  localStorage.setItem("currUser",JSON.stringify(currUser));
+  // localStorage.setItem("currUser",JSON.stringify(currUser));
 
   return (
     <div>
@@ -78,7 +78,7 @@ function Rateit() {
             return (
               <Post
                
-                name={currUser.userName}
+                name={'Ashutosh'}
                 url={post}
                 numbers=""
                 userDp={`${"/img/userprofile.png"}`}
@@ -89,7 +89,7 @@ function Rateit() {
           {posts.map((post) => {
             return (
               <Post
-                currUser = {currUser}
+                
                 name={post.owner.firstName}
                 url={post.image}
                 numbers={post.likes}
@@ -99,7 +99,7 @@ function Rateit() {
             );
           })}
         </div>
-        <Suggestion currUser={currUser} className="sugg-page"></Suggestion>
+        <Suggestion  className="sugg-page"></Suggestion>
       </div>
     </div>
   );

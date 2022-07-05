@@ -7,7 +7,7 @@ import SuggestedUser from "../suggestedUser/SuggestedUser";
 
 
 export default function Suggestion() {
-  const currUser = useUser(state=>state.currUser);
+  // const currUser = useUser(state=>state.currUser);
  
 
   const [users,setUsers] = useState([]);
@@ -44,8 +44,8 @@ export default function Suggestion() {
             <img src={`${"/img/userprofile.png"}`} alt="userimage" />
           </span>
           <span className="user-name">
-          <h5>{currUser.userName}</h5>
-          <h6>{currUser.name}</h6>
+          <h5>{}</h5>
+           <h6>{}</h6>
           </span>
 
         </div>

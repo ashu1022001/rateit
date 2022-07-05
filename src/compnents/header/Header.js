@@ -5,7 +5,7 @@ import { Popover } from "react-tiny-popover";
 import { useNavigate } from "react-router-dom";
 import UserPopOver from "../pop-overs/UserPopOver";
 import Modal from "react-modal";
-import useUser from "../Store";
+// import useUser from "../Store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Upload from "../uplaod/Upload";
 import {
@@ -22,7 +22,7 @@ import {
 
 
 function Header() {
-  const currUser = useUser(state=>state.currUser);
+  // const currUser = useUser(state=>state.currUser);
  
   let navigate = useNavigate();
 
@@ -99,7 +99,7 @@ function Header() {
           <li>
             <FontAwesomeIcon
               onClick={() => {
-                navigate(`/rateit?email=${currUser.email}`,{replace:true});
+                navigate(`/rateit`,{replace:true});
               }}
               icon={faHouse}
             />
