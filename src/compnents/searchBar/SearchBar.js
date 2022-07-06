@@ -28,7 +28,7 @@ function SearchBar() {
             <input
               type="text"
               className="search-user"
-              placeholder="search user.."
+              placeholder="Search user.."
               name="searchInput"
               value={searchUserInput}
               onChange={(e) => {

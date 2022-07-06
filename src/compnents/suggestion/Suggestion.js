@@ -44,13 +44,13 @@ export default function Suggestion() {
             <img src={`${"/img/userprofile.png"}`} alt="userimage" />
           </span>
           <span className="user-name">
-          <h5>{}</h5>
-           <h6>{}</h6>
+          <h5>{"Ashutosh Singh"}</h5>
+           <h6>{"Ashutosh123"}</h6>
           </span>
 
         </div>
         <div className={`sugg-win ${showMoreBtn  && 'show-more'}`}>
-        <span> <h5>suggested for you</h5></span>
+        <span> <h5>Suggested for you</h5></span>
         {
           users.map((user)=>{
             return(

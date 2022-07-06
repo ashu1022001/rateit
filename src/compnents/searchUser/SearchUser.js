@@ -22,7 +22,7 @@ function SearchUser(props) {
 
   return (
     <div className="search-user-container">
-    <span className="sugg-user-cont">
+    <span className="sugg-user-cont searched-user-cont">
       <span className="sugg-user-img">
         <img src={props.imgUrl} alt="user"></img>
       </span>

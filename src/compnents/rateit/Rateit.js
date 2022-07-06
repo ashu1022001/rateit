@@ -74,27 +74,28 @@ function Rateit() {
 
       <div className="main-content">
         <div>
-          {imageList.map((post) => {
-            return (
-              <Post
-               
-                name={'Ashutosh'}
-                url={post}
-                numbers=""
-                userDp={`${"/img/userprofile.png"}`}
-                date=""
-              />
-            );
-          })}
+         
           {posts.map((post) => {
             return (
               <Post
-                
+                caption={post.text}
                 name={post.owner.firstName}
                 url={post.image}
                 numbers={post.likes}
                 userDp={post.owner.picture}
                 date={post.publishDate}
+              />
+            );
+          })}
+          {imageList.map((post) => {
+            return (
+              <Post
+               caption = {false}
+                name={'Ashutosh'}
+                url={post}
+                numbers=""
+                userDp={`${"/img/userprofile.png"}`}
+                date=""
               />
             );
           })}

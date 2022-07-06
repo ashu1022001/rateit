@@ -111,6 +111,7 @@
         overflow-x: scroll;
         height: auto !important;
         justify-content: flex-start;
+        box-shadow: none;
 
     }
     .sugg-user-container{
@@ -120,6 +121,7 @@
     .sugg-win h5{
         position: absolute;
         top:-10px;
+        left: 10px;
     }
     .sugg-user-cont{
         flex-direction: column;

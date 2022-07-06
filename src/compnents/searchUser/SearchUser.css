@@ -17,3 +17,6 @@
     cursor: pointer;
     transition: .5s ease;
 }
+.searched-user-cont{
+    flex-direction: row;
+}

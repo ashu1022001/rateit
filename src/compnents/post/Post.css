@@ -7,7 +7,9 @@
     margin: 30px 0;
     border-radius: 50px;
     position: relative;
-    height: 650px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
     
     max-width: 500px;
     overflow: hidden;
@@ -49,16 +51,16 @@
 }
 
 .picture{
-    position: absolute;
-    height: 500px;
+    
+    /* height: 500px; */
     width: 100%;
-    top: 50px;
-    left: 0;
+   
 
 }
 .picture img{
-    height: 100%;
+    max-height: 500px;
     width: 100%;
+    object-fit: cover;
 }
 
 
@@ -68,15 +70,20 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 300px;
+
     height: calc(100% - 22px);
 
+  }
+  .user-interaction{
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between
   }
 
   .emoji {
 
-    font-size: 30px;
-    height: 40px;
+    font-size: 25px;
+    
     
   }
   .rating{
@@ -87,6 +94,7 @@
   
   .rate input {
     cursor: ew-resize;
+    width: 110px;
   }
 
   /* #interaction ul{
@@ -99,23 +107,29 @@
     margin: 0;
 } */
 
-#interaction{
-    position: absolute;
+.interaction{
+   
     display: flex;
-    height: 100px;
+  
     width: 100%;
-    justify-content: space-evenly;
-    bottom: 0;
-    left: 0;
-    align-items: center;
+    flex-direction: column;
     
+}
+.post-caption-details{
+    margin: 10px;
+    gap: 8px;
+    display: flex;
+}
+.post-caption h5{
+    font-weight:normal;
 }
 .urated{
  
     width: 100px;
-    height: 80px;
+    
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     
 
     
@@ -124,8 +138,7 @@
 
 .totalRatings{
     font-weight: bolder;
-    position: absolute;
-    bottom: 20px;
+   
 }
 
 

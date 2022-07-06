@@ -7,7 +7,6 @@ function Post(props) {
   const emojiCount = numbers % 5;
   const [emojiIndex, setEmojisIndex] = useState(0);
   const emos = ["😠", "😦", "😑", "😀", "😍"];
-  
 
   return (
     <div className="content">
@@ -23,36 +22,38 @@ function Post(props) {
       <div className="picture">
         <img src={props.url} alt="img"></img>
       </div>
-      <div id="interaction">
-        <div>
-          <span className="uname">{props.name}</span>
+      <div className="interaction">
+        <div className="post-caption-details">
+          <span className="uname"><h5>{props.caption && props.name }</h5></span>
+          <span className="post-caption"><h5> {props.caption ? props.caption:null}</h5></span>
         </div>
-
-        <div className="rate">
-          {emos.map(
-            (e, i) =>
-              i === emojiIndex && (
-                <div className="emoji" key={e}>
-                  <div className={`rating`}>{e}</div>
-                </div>
-              )
-          )}
-          <input
-            type="range"
-            min="0"
-            max="99"
-            step="1"
-            defaultValue="50"
-            onChange={function (e) {
-              let i = Math.floor(e.target.value / 20);
-              setEmojisIndex(i);
-            }}
-          ></input>
+        <div className="user-interaction">
+          <div className="rate">
+            {emos.map(
+              (e, i) =>
+                i === emojiIndex && (
+                  <div className="emoji" key={e}>
+                    <div className={`rating`}>{e}</div>
+                  </div>
+                )
+            )}
+            <input
+              type="range"
+              min="0"
+              max="99"
+              step="1"
+              defaultValue="50"
+              onChange={function (e) {
+                let i = Math.floor(e.target.value / 20);
+                setEmojisIndex(i);
+              }}
+            ></input>
+          </div>
+          <span className="urated">
+            <span className="emoji">{emos[emojiCount]}</span>
+            <span className="totalRatings">{numbers} others</span>
+          </span>
         </div>
-        <span className="urated">
-          <span className="emoji">{emos[emojiCount]}</span>
-          <span className="totalRatings">{numbers} others</span>
-        </span>
       </div>
     </div>
   );

@@ -1,4 +1,6 @@
 import React from "react";
+import {auth} from "../firebase/firebase"
+
 
 import { useNavigate } from "react-router-dom";
 import useUser from "../Store";
@@ -19,6 +21,7 @@ function UserPopOver() {
 
    const  logoutHandler =() =>{
     localStorage.clear();
+    auth.signOut();
     navigate("/",{replace:true});
     //  logout();
    }
@@ -27,15 +30,15 @@ function UserPopOver() {
     <div className="user-pop-over-cont">
       <div>
       <span><FontAwesomeIcon icon={faCircleUser}></FontAwesomeIcon></span>
-      <span onClick={userProfile}>profile</span>
+      <span onClick={userProfile}>Profile</span>
       </div>
       <div>
       <span><FontAwesomeIcon icon={faGear}/></span>
-      <span>settings</span>
+      <span>Settings</span>
       </div>
       <div>
       <span><FontAwesomeIcon icon={faArrowRightFromBracket}/></span>
-      <span onClick={logoutHandler}>logout</span>
+      <span onClick={logoutHandler}>Logout</span>
       </div>
     </div>
   );

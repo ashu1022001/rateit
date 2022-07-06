@@ -18,6 +18,7 @@ import {
   equalTo,
   onValue,
 } from "firebase/database";
+import Post from "../post/Post";
 
 function Userprofile() {
   // const currUser = useUser((state) => state.currUser);
