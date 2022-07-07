@@ -11,6 +11,7 @@ import {
 import { ToastContainer } from "react-toastify";
 import Userprofile from "./compnents/user-profile/Userprofile";
 import ProtectedRoutes from "./compnents/ProtectedRoutes";
+import UsersProfile from "./compnents/usersProfile/UsersProfile";
 import Header from "./compnents/header/Header";
 import { Routes, Route } from "react-router-loading";
 
@@ -29,6 +30,7 @@ function App() {
         <Route  element={<ProtectedRoutes/>}>
         <Route path="/rateit" element={<Rateit />} loading  />
         <Route path="/rateit/user" element={<Userprofile/>} loading></Route>
+        <Route path="/rateit/userprofile" element={<UsersProfile/>} loading></Route>
         </Route>
       </Routes>
     </Router>

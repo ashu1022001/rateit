@@ -84,6 +84,7 @@ function Rateit() {
             return (
               <Post
                 key={post.id}
+                id ={post.owner.id}
                 caption={post.text}
                 name={post.owner.firstName}
                 url={post.image}
@@ -96,7 +97,7 @@ function Rateit() {
           {imageList.map((post) => {
             return (
               <Post
-                key={post}
+                key={post.id}
                caption = {false}
                 name={'Ashutosh'}
                 url={post}

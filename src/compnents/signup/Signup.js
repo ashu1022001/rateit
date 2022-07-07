@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { LoadingContext } from "react-router-loading";
 
 function SignUp() {
-  const loadingContext = useContext(LoadingContext);
+
   let navigate = useNavigate();
  
   const handleSubmit = async (e) => {
@@ -42,7 +42,7 @@ function SignUp() {
       toast.error(error.message);
     }
   };
-  loadingContext.done();
+ 
 
   return (
     <div>

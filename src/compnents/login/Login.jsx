@@ -69,7 +69,7 @@ export const Login = () => {
             <div className="signup">
               <p>
                 {" "}
-                <Link to="../signup">Don't have an account??</Link>
+                <Link to="../signup">Don't have an account?</Link>
               </p>
             </div>
           </div>

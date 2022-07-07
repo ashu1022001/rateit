@@ -1,6 +1,8 @@
 import React from 'react'
 import "../searchUser/SearchUser.css"
 import Tippy from "@tippyjs/react";
+import { useNavigate } from "react-router";
+
 import{useState} from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +14,11 @@ function SearchUser(props) {
 
     const [followbtn,setFollowbtn] = useState(true);
     const [content,setContent] = useState("Add");
+    const navigate = useNavigate()
+
+    const openClickedUserProfile=()=>{
+      navigate(`/rateit/userprofile?id=${props.id}`, { replace: true });
+    }
     
     const followFn=()=>{
       setFollowbtn(false)
@@ -22,7 +29,7 @@ function SearchUser(props) {
 
   return (
     <div className="search-user-container">
-    <span className="sugg-user-cont searched-user-cont">
+    <span className="sugg-user-cont searched-user-cont" onClick={openClickedUserProfile}>
       <span className="sugg-user-img">
         <img src={props.imgUrl} alt="user"></img>
       </span>

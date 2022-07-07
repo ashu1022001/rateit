@@ -1,28 +1,36 @@
 import React, { useState } from "react";
 import "./Post.css";
+import UsersProfile from "../usersProfile/UsersProfile";
 import ReactTimeAgo from "react-time-ago";
 import Skeleton from 'react-loading-skeleton'
+import { useNavigate } from "react-router";
 import 'react-loading-skeleton/dist/skeleton.css'
 
 function Post(props) {
+ 
   const numbers = props.numbers;
+  const navigate = useNavigate();
   const emojiCount = numbers % 5;
   const [emojiIndex, setEmojisIndex] = useState(0);
   const emos = ["😠", "😦", "😑", "😀", "😍"];
 
+  const openClickedUserProfile=()=>{
+    navigate(`/rateit/userprofile?id=${props.id}`, { replace: true });
+  }
+
   return (
     <div className="content">
       <div className="post-details">
-        <span className="user-img">
+        <span className="user-img" onClick={openClickedUserProfile}>
           <img src={props.userDp ||<Skeleton/>} alt="user-img"></img>
         </span>
-        <h5 className="username">{props.name  ||<Skeleton/>}</h5>
+        <h5 className="username" onClick={openClickedUserProfile}>{props.name  ||<Skeleton/>}</h5>
         <span className="post-time">
           {props.date && <ReactTimeAgo date={new Date(props.date)} />}
         </span>
       </div>
       <div className="picture">
-        <img src={props.url ||<Skeleton count={10}/>} alt="img"></img>
+        <img src={props.url ||<Skeleton count={10}/>} alt="img" ></img>
       </div>
       <div className="interaction">
         <div className={`${props.caption && "post-caption-details"} `}>

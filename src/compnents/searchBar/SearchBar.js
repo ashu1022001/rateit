@@ -67,6 +67,7 @@ function SearchBar() {
           return (
             <SearchUser
               key ={user.id}
+              id = {user.id}
               fname={user.firstName}
               lname={user.lastName}
               imgUrl={user.picture}
