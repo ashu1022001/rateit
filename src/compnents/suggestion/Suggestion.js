@@ -54,7 +54,8 @@ export default function Suggestion() {
         {
           users.map((user)=>{
             return(
-              <SuggestedUser
+              <SuggestedUser 
+              key={user.id}
               fname = {user.firstName}
               lname = {user.lastName}
               imgUrl = {user.picture}

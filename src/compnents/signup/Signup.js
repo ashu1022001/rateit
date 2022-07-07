@@ -1,13 +1,17 @@
 import "./Signup.css";
+import useContext from "react";
 
 import { Link ,useNavigate} from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, database } from "../firebase/firebase";
 import { push, ref } from "firebase/database";
 import { toast } from "react-toastify";
+import { LoadingContext } from "react-router-loading";
 
 function SignUp() {
+  const loadingContext = useContext(LoadingContext);
   let navigate = useNavigate();
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -38,6 +42,7 @@ function SignUp() {
       toast.error(error.message);
     }
   };
+  loadingContext.done();
 
   return (
     <div>

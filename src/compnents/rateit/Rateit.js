@@ -1,5 +1,5 @@
 import "./Rateit.css";
-import React, { useState } from "react";
+import React, { useState ,useContext} from "react";
 import { useEffect } from "react";
 import Post from "../post/Post";
 
@@ -10,8 +10,13 @@ import { storage,database} from "../firebase/firebase";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import Header from "../header/Header";
 import { useLocation } from "react-router";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { LoadingContext } from "react-router-loading";
+
 
 function Rateit() {
+  const loadingContext = useContext(LoadingContext);
 
   // const [currUser,setCurrUser] = useState("");
   
@@ -39,7 +44,7 @@ function Rateit() {
   const imageListRef = ref(storage, "images/");
 
   // let subtitle;
-
+  
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -67,7 +72,7 @@ function Rateit() {
     
   }, []);
   // localStorage.setItem("currUser",JSON.stringify(currUser));
-
+  loadingContext.done();
   return (
     <div>
       <Header ></Header>
@@ -78,6 +83,7 @@ function Rateit() {
           {posts.map((post) => {
             return (
               <Post
+                key={post.id}
                 caption={post.text}
                 name={post.owner.firstName}
                 url={post.image}
@@ -90,6 +96,7 @@ function Rateit() {
           {imageList.map((post) => {
             return (
               <Post
+                key={post}
                caption = {false}
                 name={'Ashutosh'}
                 url={post}

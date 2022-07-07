@@ -1,6 +1,7 @@
 .search-user-container{
     width: 90%;
-    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
     padding-left: 3px;
     display: flex;
     gap: 10px;

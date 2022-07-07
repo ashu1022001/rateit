@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import Userpost from "../user-post/Userpost";
 import "./Userprofile.css";
 import { storage} from "../firebase/firebase";
@@ -9,7 +9,7 @@ import Modal from "react-modal";
 import Header from "../header/Header";
 import { database } from "../firebase/firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserPen, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faUserPen, faXmark,faExpandArrowsAlt,faTableCells } from "@fortawesome/free-solid-svg-icons";
 import {
   push,
   ref as dbref,
@@ -19,8 +19,10 @@ import {
   onValue,
 } from "firebase/database";
 import Post from "../post/Post";
+import { LoadingContext } from "react-router-loading";
 
 function Userprofile() {
+  const loadingContext = useContext(LoadingContext);
   // const currUser = useUser((state) => state.currUser);
   // const userName = currUser.userName;
 
@@ -30,6 +32,7 @@ function Userprofile() {
 
   // const profilePicRef = ref(storage, `images/profilepics/${userName}/`);
 
+  const[expand,setExpand] = useState(false);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const customStyles = {
     content: {
@@ -88,14 +91,14 @@ function Userprofile() {
 
   }, []);
   // const profilePic = currUser.profilePicUrl;
-  
+  loadingContext.done();
 
   return (
     <div>
       <Header />
 
       <div className="user-profile-container">
-        <div className="user-info">
+        <div className={"user-info"}>
           <span className="user-image">
             <img src={`${ "/img/userprofile.png"} ` } alt="profile" />
           </span>
@@ -122,10 +125,15 @@ function Userprofile() {
             </span>
           </span>
         </div>
-        <div className="user-posts">
+        <div className="expand-toggle">
+        <input type="checkbox" onChange={()=>setExpand(!expand)} id="switch" /><label className="toggle-label"  for="switch"></label>
+    
+         </div>
+        <div className={` ${expand?"expand":"user-posts" }`}>
           {userPost.map((post) => {
             return (
               <Userpost
+              key={post.id}
                 name={"Ashutosh Singh"}
                 picture={`${ "/img/userprofile.png"} `}
                 caption={post.text}

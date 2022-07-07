@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {auth} from "../firebase/firebase"
 
 
@@ -11,6 +11,8 @@ import { faArrowRightFromBracket, faCircleUser, faGear } from "@fortawesome/free
 function UserPopOver() {
   // const currUser = useUser(state=>state.currUser);
   // const logout = useUser(state=> state.removeCurrUser)
+
+  const[darkMode,setDarkMode] =useState(false);
 
  
 
@@ -26,6 +28,11 @@ function UserPopOver() {
     //  logout();
    }
 
+   const changeMode=()=>{
+    setDarkMode(!darkMode)
+
+   }
+
   return (
     <div className="user-pop-over-cont">
       <div>
@@ -33,7 +40,8 @@ function UserPopOver() {
       <span onClick={userProfile}>Profile</span>
       </div>
       <div>
-      <span><FontAwesomeIcon icon={faGear}/></span>
+      <span><FontAwesomeIcon 
+      icon={faGear}/></span>
       <span>Settings</span>
       </div>
       <div>

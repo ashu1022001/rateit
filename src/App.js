@@ -23,12 +23,12 @@ function App() {
 
     <Router>
       <Routes>
-        <Route path="/" element={<Login />}  />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<Login  />}  />
+        <Route path="/signup" element={<SignUp loading />} />
         <Route path="/some" element={<Some />} ></Route>
         <Route  element={<ProtectedRoutes/>}>
-        <Route path="/rateit" element={<Rateit />}  />
-        <Route path="/rateit/user" element={<Userprofile/>} ></Route>
+        <Route path="/rateit" element={<Rateit />} loading  />
+        <Route path="/rateit/user" element={<Userprofile/>} loading></Route>
         </Route>
       </Routes>
     </Router>

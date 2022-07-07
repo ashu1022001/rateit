@@ -88,7 +88,7 @@
   }
   .rating{
     
-    animation: shaking .3s ease ;
+    animation: shaking .2s ease ;
     animation-delay:.3s ;
   }
   
@@ -151,14 +151,14 @@
 
 @keyframes shaking{
     0%{
-      transform: translateX(50%)
+      transform: translateX(40%)
     }
 
     33%{
         transform: translateX(0);
     }
     66%{
-        transform: translateX(-50%)
+        transform: translateX(-40%)
       }
   
       100%{

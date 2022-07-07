@@ -185,12 +185,37 @@ align-items: center;
  
     transition: .3s ease;
 }
+@media (min-width:600px) {
+    
 
 .user-pop-over-cont :hover{
     background: rgb(242, 242, 242);
 
 }
 
+::-webkit-scrollbar {
+    width: 15px;
+  }
+
+.searched-cont::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+}
 .modal{
     position: absolute;
     top: "50%";
@@ -211,6 +236,8 @@ align-items: center;
     width: 200px;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    max-height: 500px;
     
     align-items:center ;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;

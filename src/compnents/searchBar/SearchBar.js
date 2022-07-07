@@ -66,6 +66,7 @@ function SearchBar() {
         .map((user) => {
           return (
             <SearchUser
+              key ={user.id}
               fname={user.firstName}
               lname={user.lastName}
               imgUrl={user.picture}
