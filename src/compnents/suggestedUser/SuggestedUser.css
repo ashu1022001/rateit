@@ -4,6 +4,7 @@
     /* margin-left: 3px; */
     gap: 10px;
     align-items: center;
+    cursor: pointer;
    
     
 }
@@ -29,5 +30,8 @@
 
 .fa-check{
     color: green;
+}
+.searched-user-cont{
+    flex-direction: row !important;
 }
 

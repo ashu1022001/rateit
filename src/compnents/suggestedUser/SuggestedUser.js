@@ -14,7 +14,7 @@ export default function SuggestedUser(props) {
   const [followbtn,setFollowbtn] = useState(true);
   const [content,setContent] = useState("Add");
   const openClickedUserProfile=()=>{
-    navigate(`/rateit/userprofile?id=${props.id}`, { replace: true });
+  navigate(`/rateit/userprofile?id=${props.id}`, { replace: true });
   }
 
   const followFn=()=>{

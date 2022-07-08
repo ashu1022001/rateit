@@ -88,7 +88,10 @@ function Header() {
       <div className="header-search">
       <SearchBar />
       </div>
-      <div className="logo">
+      <div className="logo"
+      
+      onClick={()=>
+        {navigate("/rateit",{replace:true})}}>
         <h3>
           <span>Rate</span>
           <span className="logoit">it</span>

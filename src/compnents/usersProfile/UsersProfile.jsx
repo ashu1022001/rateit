@@ -59,7 +59,7 @@ function Usersprofile() {
       <div className="user-profile-container">
         <div className={"user-info"}>
           <span className="user-image">
-            <img src={user?.owner.picture} alt="profile" />
+            <img src={user?.owner.picture || "img/userprofile.png"} alt="profile" />
           </span>
           <span className="user-profile-detail">
             <span>
