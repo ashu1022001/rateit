@@ -32,7 +32,7 @@ body {
 }
 
 .head {
-    width: 210px;
+    width: 260px;
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
@@ -51,43 +51,21 @@ body {
     align-items: center;
 }
 
-/* .nav-bar{
-    position: absolute;
-    height: 100%;
-    width: 300px;
-    right: 0;
-   
-} */
-/* search user */
-/* .search-cont{
-    position: relative;
-  height: 100%;
-  width: 80%;
-    padding: 0;
-    margin: 0;
-   
-    
-} */
-
 .search-cont {
+    width: 90%;
     display: flex;
     align-items: center;
 }
 
 .search-user {
-    outline-color: black;
-    height: 23px;
-    /* border: 1px #F3F3F4 solid; */
-
-    border-radius: 23px;
+    height: 35px;
+    outline: none;
+    border: none;
+ 
     transition: .4s;
-    background: #EFEFEF;
+    background: none;
     width: 90%;
-    padding: 0 0 0 10px;
-
-
-
-
+    padding: 0 0 0 10px
 }
 
 .searched_term {
@@ -179,7 +157,13 @@ body {
 }
 
 .search-bar {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #EFEFEF;
+    color: grey;
     display: flex;
+    align-items: center;
 }
 
 .user-pop-over-cont div {
@@ -422,6 +406,7 @@ body {
     }
 
     .search-bar {
+        background: none;
         display: flex;
         width: 100%;
     }

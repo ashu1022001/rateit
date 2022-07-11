@@ -15,7 +15,7 @@ function Post(props) {
   const emos = ["😠", "😦", "😑", "😀", "😍"];
 
   const openClickedUserProfile=()=>{
-    navigate(`/rateit/userprofile?id=${props.id}`, { replace: true });
+    navigate(`/rateit/userprofile/${props.id}`);
   }
 
   return (

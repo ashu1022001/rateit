@@ -30,7 +30,7 @@ function App() {
         <Route  element={<ProtectedRoutes/>}>
         <Route path="/rateit" element={<Rateit />} loading  />
         <Route path="/rateit/user" element={<Userprofile/>} loading></Route>
-        <Route path="/rateit/userprofile" element={<UsersProfile/>} loading></Route>
+        <Route path="/rateit/userprofile/:userId" element={<UsersProfile/>} loading></Route>
         </Route>
       </Routes>
     </Router>

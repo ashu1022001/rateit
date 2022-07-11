@@ -1,7 +1,7 @@
 import React ,{useState,useEffect} from 'react'
 import "./SearchBar.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faX } from "@fortawesome/free-solid-svg-icons";
+import {  faX,faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import SearchUser from "../searchUser/SearchUser";
 
@@ -45,7 +45,7 @@ function SearchBar() {
             >
             <FontAwesomeIcon icon={faX}/>
             </button>
-          )}
+          ) || <FontAwesomeIcon icon={faSearch} fontSize={15}></FontAwesomeIcon>}
         </div>
 
       </div>

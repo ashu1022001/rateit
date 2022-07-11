@@ -17,7 +17,7 @@ function SearchUser(props) {
     const navigate = useNavigate()
 
     const openClickedUserProfile=()=>{
-      navigate(`/rateit/userprofile?id=${props.id}`, { replace: true });
+      navigate(`/rateit/userprofile/${props.id}`);
     }
     
     const followFn=()=>{

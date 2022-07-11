@@ -91,7 +91,7 @@ function Header() {
       <div className="logo"
       
       onClick={()=>
-        {navigate("/rateit",{replace:true})}}>
+        {navigate("/rateit")}}>
         <h3>
           <span>Rate</span>
           <span className="logoit">it</span>

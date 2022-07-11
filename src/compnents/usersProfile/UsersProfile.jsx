@@ -4,25 +4,22 @@ import Userpost from "../user-post/Userpost";
 import Header from "../header/Header";
 
 import { LoadingContext } from "react-router-loading";
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 
 function Usersprofile() {
   const loadingContext = useContext(LoadingContext);
   // const currUser = useUser((state) => state.currUser);
   // const userName = currUser.userName;
-
-  const [currUserKey, setCurrUserKey] = useState([]);
+  const { userId } = useParams();
+  
+  // const [currUserKey, setCurrUserKey] = useState([]);
   // const [dbProfilePicUrl,setDbProfilePicUrl] = useState("");
 
   // const profilePicRef = ref(storage, `images/profilepics/${userName}/`);
 
   const [expand, setExpand] = useState(false);
-  const useQuery = () => {
-    return new URLSearchParams(useLocation().search);
-  };
-  const currUser = useQuery().get("id");
 
-  const url = `https://dummyapi.io/data/v1/user/${currUser}/post?limit=100`;
+  const url = `https://dummyapi.io/data/v1/user/${userId}/post?limit=100`;
 
   const [userPost, setUserPost] = useState([]);
   useEffect(() => {

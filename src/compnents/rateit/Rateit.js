@@ -84,7 +84,7 @@ function Rateit() {
             return (
               <Post
                 key={post.id}
-                id ={post.owner.id}
+                id ={post?.owner.id}
                 caption={post.text}
                 name={post.owner.firstName}
                 url={post.image}
@@ -98,7 +98,7 @@ function Rateit() {
             return (
               <Post
                 key={post.id}
-               caption = {false}
+                caption = {false}
                 name={'Ashutosh'}
                 url={post}
                 numbers=""
