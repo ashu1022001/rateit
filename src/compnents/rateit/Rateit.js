@@ -2,6 +2,7 @@ import "./Rateit.css";
 import React, { useState ,useContext} from "react";
 import { useEffect } from "react";
 import Post from "../post/Post";
+import { useNavigate } from "react-router";
 
 import Suggestion from "../suggestion/Suggestion";
 import { onValue,ref as dbref, query, orderByChild, equalTo} from "firebase/database";
@@ -13,10 +14,12 @@ import { useLocation } from "react-router";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { LoadingContext } from "react-router-loading";
+import { useSwipeable } from 'react-swipeable';
 
 
 function Rateit() {
   const loadingContext = useContext(LoadingContext);
+  const navigate = useNavigate();
 
   // const [currUser,setCurrUser] = useState("");
   
@@ -73,8 +76,14 @@ function Rateit() {
   }, []);
   // localStorage.setItem("currUser",JSON.stringify(currUser));
   loadingContext.done();
+  const handlers = useSwipeable({
+    onSwipedUp:(e)=>{console.log(e)},
+    swipeDuration: 500,
+    preventScrollOnSwipe: true,
+    trackMouse: true
+  });
   return (
-    <div>
+    <div {...handlers}>
       <Header ></Header>
 
       <div className="main-content">

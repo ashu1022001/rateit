@@ -18,7 +18,7 @@ function UserPopOver() {
 
   let navigate = useNavigate();
   const  userProfile= ()=>{
-   navigate(`/rateit/user`, { replace: true });
+   navigate(`/rateit/user`);
    }
 
    const  logoutHandler =() =>{

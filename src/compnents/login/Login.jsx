@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 
 
+
 export const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -25,12 +26,13 @@ export const Login = () => {
       );
       
       localStorage.setItem(email,password);
-       navigate(`/rateit?email=${email}`, { replace: true });
+       navigate(`/rateit`, { replace: true });
     } catch (error) {
       toast.error(error.message)
     }
     
   };
+ 
 
   return (
     <div>
@@ -66,10 +68,9 @@ export const Login = () => {
                 Login
               </button>
             </div>
-            <div className="signup">
+            <div  className="signup">
               <p>
-                {" "}
-                <Link to="../signup">Don't have an account?</Link>
+                Don't have an account? <span onClick={()=>{navigate('/signup',{replace:true})} } className="login-text"> Signup</span>
               </p>
             </div>
           </div>

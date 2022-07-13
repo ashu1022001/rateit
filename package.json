@@ -20,6 +20,7 @@
     "react-router-dom": "^6.3.0",
     "react-router-loading": "^1.0.0",
     "react-scripts": "^5.0.1",
+    "react-swipeable": "^7.0.0",
     "react-time-ago": "^7.2.1",
     "react-tiny-popover": "^7.0.1",
     "react-toastify": "^9.0.4",

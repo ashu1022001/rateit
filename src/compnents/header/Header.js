@@ -102,7 +102,7 @@ function Header() {
           <li>
             <FontAwesomeIcon
               onClick={() => {
-                navigate(`/rateit`,{replace:true});
+                navigate(`/rateit`);
               }}
               icon={faHouse}
             />
