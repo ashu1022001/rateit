@@ -83,7 +83,7 @@ function Rateit() {
     trackMouse: true
   });
   return (
-    <div {...handlers}>
+    <div >
       <Header ></Header>
 
       <div className="main-content">

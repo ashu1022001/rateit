@@ -13,6 +13,7 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+   
 
     const email = e.target.elements.email.value.trim();
     const name = e.target.elements.name.value.trim();
@@ -50,7 +51,7 @@ function SignUp() {
               </span>
             </h3>
           </div>
-          <div className="signup-form">
+          <form className="signup-form" onSubmit={handleSubmit}>
             <input type="email" placeholder="Email" name="email"></input>
             <input type="text" placeholder="Full name" name="name"></input>
             <input type="text" placeholder="Username" name="username" />
@@ -64,11 +65,11 @@ function SignUp() {
               className="btn"
               type="submit"
               id="signupbtn"
-              onSubmit={handleSubmit}
+              
             >
               Signup
             </button>
-          </div>
+          </form>
           <div>
             <p>
               Have an account?{" "}
