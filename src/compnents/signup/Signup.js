@@ -4,7 +4,7 @@ import useContext from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, database } from "../firebase/firebase";
-import { push, ref } from "firebase/database";
+import { push, ref, set } from "firebase/database";
 import { toast } from "react-toastify";
 import { LoadingContext } from "react-router-loading";
 
@@ -27,7 +27,7 @@ function SignUp() {
           localStorage.setItem("email", email);
           navigate(`/rateit`, { replace: true });
           const user = userCedential.user;
-          push(ref(database, "users"), {
+          set(ref(database, `users/${user.uid}`), {
             email: email,
             name: name,
             userName: userName,
@@ -52,15 +52,16 @@ function SignUp() {
             </h3>
           </div>
           <form className="signup-form" onSubmit={handleSubmit}>
-            <input type="email" placeholder="Email" name="email"></input>
-            <input type="text" placeholder="Full name" name="name"></input>
-            <input type="text" placeholder="Username" name="username" />
-            <input
+            <input required type="email" placeholder="Email" name="email"/>
+            <input type="text" placeholder="Full name" name="name"/>
+            <input required type="text" placeholder="Username" name="username" />
+            <input 
+              required
               type="password"
               name="password"
               id="pass"
               placeholder="Password"
-            ></input>
+            />
             <button
               className="btn"
               type="submit"

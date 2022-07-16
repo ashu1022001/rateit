@@ -3,12 +3,14 @@ import { useEffect } from "react";
 import "./Suggestion.css"
 import useUser from "../Store";
 
+
 import SuggestedUser from "../suggestedUser/SuggestedUser";
 
 
 export default function Suggestion() {
   // const currUser = useUser(state=>state.currUser);
- 
+  const {currUser} = useUser();
+  
 
   const [users,setUsers] = useState([]);
   const [showMoreBtn,setShowMoreBtn] = useState(false);
@@ -41,11 +43,11 @@ export default function Suggestion() {
       <div className="suggestion-cont">
         <div className="current-user">
           <span className="user-box">
-            <img src={`${"/img/userprofile.png"}`} alt="userimage" />
+            <img src={currUser?.profilePicUrl} alt="userimage" />
           </span>
           <span className="user-name">
-          <h5>{"Ashutosh Singh"}</h5>
-           <h6>{"Ashutosh123"}</h6>
+          <h5>{currUser?.name}</h5>
+           <h6>{currUser?.userName}</h6>
           </span>
 
         </div>

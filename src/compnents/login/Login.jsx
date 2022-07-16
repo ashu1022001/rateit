@@ -10,12 +10,14 @@ import { auth } from "../firebase/firebase";
 
 import { toast } from "react-toastify";
 import { useState } from "react";
+import useUser from "../Store";
 
 
 
 export const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const { updateCurrUser } = useUser();
   let navigate = useNavigate();
   const loginfn = async (e) => {
     try {
@@ -24,8 +26,8 @@ export const Login = () => {
         email,
         password
       );
-      
-      localStorage.setItem(email,password);
+       
+       updateCurrUser(user.user);
        navigate(`/rateit`, { replace: true });
     } catch (error) {
       toast.error(error.message)

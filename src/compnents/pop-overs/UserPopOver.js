@@ -13,6 +13,7 @@ function UserPopOver() {
   // const logout = useUser(state=> state.removeCurrUser)
 
   const[darkMode,setDarkMode] =useState(false);
+  const { removeCurrUser } = useUser();
 
  
 
@@ -22,9 +23,10 @@ function UserPopOver() {
    }
 
    const  logoutHandler =() =>{
-    localStorage.clear();
-    auth.signOut();
     navigate("/",{replace:true});
+    removeCurrUser();
+    auth.signOut();
+    
     //  logout();
    }
 

@@ -1,7 +1,7 @@
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Userpost from "../user-post/Userpost";
 import "./Userprofile.css";
-import { storage} from "../firebase/firebase";
+import { storage } from "../firebase/firebase";
 import { getDownloadURL, ref, listAll } from "firebase/storage";
 import UploadProfile from "../uploadProfile/UploadProfile";
 import useUser from "../Store";
@@ -9,7 +9,12 @@ import Modal from "react-modal";
 import Header from "../header/Header";
 import { database } from "../firebase/firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserPen, faXmark,faExpandArrowsAlt,faTableCells } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUserPen,
+  faXmark,
+  faExpandArrowsAlt,
+  faTableCells,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   push,
   ref as dbref,
@@ -17,22 +22,19 @@ import {
   orderByChild,
   equalTo,
   onValue,
+  update,
+  set as dbset,
 } from "firebase/database";
 import Post from "../post/Post";
 import { LoadingContext } from "react-router-loading";
 
 function Userprofile() {
   const loadingContext = useContext(LoadingContext);
-  // const currUser = useUser((state) => state.currUser);
-  // const userName = currUser.userName;
 
-  const [currUserKey, setCurrUserKey] = useState([]);
-  // const [dbProfilePicUrl,setDbProfilePicUrl] = useState("");
- 
+  const [profilePicRef, setProfilePicRef] = useState("");
+  const { currUser } = useUser();
 
-  // const profilePicRef = ref(storage, `images/profilepics/${userName}/`);
-
-  const[expand,setExpand] = useState(false);
+  const [expand, setExpand] = useState(false);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const customStyles = {
     content: {
@@ -44,7 +46,7 @@ function Userprofile() {
       padding: "0",
       display: "flex",
       flexDirection: "coloumn",
-    
+
       transform: "translate(-50%, -50%)",
     },
   };
@@ -53,9 +55,7 @@ function Userprofile() {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {
-  
-  }
+  function afterOpenModal() {}
 
   function closeModal() {
     setIsOpen(false);
@@ -74,23 +74,8 @@ function Userprofile() {
       .then((posts) => posts.json())
       .then((posts) => posts)
       .then((posts) => setUserPost(posts.data));
-
-      // onValue(user, (snapshot) => {
-      //   let data = snapshot.val();
-      //   setCurrUserKey(Object.keys(data));
-      // });
-      
-      // listAll(profilePicRef).then((res) => {
-      //   res.items.forEach((item) => {
-      //     getDownloadURL(item).then((url) => {
-      //       push(dbref(database, `users/${currUserKey}/profilePicUrl`), url);
-      //     });
-      //   });
-      // });
-
-
   }, []);
-  // const profilePic = currUser.profilePicUrl;
+
   loadingContext.done();
 
   return (
@@ -100,11 +85,11 @@ function Userprofile() {
       <div className="user-profile-container">
         <div className={"user-info"}>
           <span className="user-image">
-            <img src={`${ "/img/userprofile.png"} ` } alt="profile" />
+            <img src={currUser?.profilePicUrl} alt="profile" />
           </span>
           <span className="user-profile-detail">
             <span>
-              <h3>Ashutosh Singh</h3>
+              <h3>{currUser?.userName}</h3>
             </span>
             <span>
               <FontAwesomeIcon onClick={openModal} icon={faUserPen} />
@@ -126,16 +111,20 @@ function Userprofile() {
           </span>
         </div>
         <div className="expand-toggle">
-        <input type="checkbox" onChange={()=>setExpand(!expand)} id="switch" /><label className="toggle-label"  for="switch"></label>
-    
-         </div>
-        <div className={` ${expand?"expand":"user-posts" }`}>
+          <input
+            type="checkbox"
+            onChange={() => setExpand(!expand)}
+            id="switch"
+          />
+          <label className="toggle-label" for="switch"></label>
+        </div>
+        <div className={` ${expand ? "expand" : "user-posts"}`}>
           {userPost.map((post) => {
             return (
               <Userpost
-              key={post.id}
+                key={post.id}
                 name={"Ashutosh Singh"}
-                picture={`${ "/img/userprofile.png"} `}
+                picture={`${"/img/userprofile.png"} `}
                 caption={post.text}
                 date={post.publishDate}
                 image={post.image}

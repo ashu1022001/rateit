@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate,Outlet } from 'react-router';
 const useAuth = ()=>{
-    return localStorage.length>0;
+    return !!localStorage.getItem("user");
 }
 
 function ProtectedRoutes() {
